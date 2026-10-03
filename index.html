@@ -1,388 +1,493 @@
-<!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Marwan Mokhtar Awad Ali | مروان مختار عوض علي — Portfolio</title>
-<meta name="description" content="Computer Science Student — AI, Robotics & Web Developer Portfolio">
+<meta name="description" content="Computer Science Student — AI, Robotics & Web Developer Portfolio — موقع شخصي / أكاديمي / تقني لمروان مختار عوض علي">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <style>
+/* ============ TOKENS ============ */
 :root{
-  --hue:245;
-  --bg: hsl(var(--hue) 35% 7%);
-  --bg-soft: hsl(var(--hue) 30% 9%);
-  --surface: hsl(var(--hue) 28% 12%);
-  --surface-2: hsl(var(--hue) 26% 15%);
-  --border: hsl(var(--hue) 22% 22%);
-  --border-soft: hsl(var(--hue) 20% 18%);
-  --text: hsl(var(--hue) 20% 95%);
-  --text-dim: hsl(var(--hue) 14% 68%);
-  --text-mute: hsl(var(--hue) 10% 48%);
-  --accent: hsl(var(--hue) 85% 68%);
-  --accent-2: hsl(258 85% 70%);
-  --glow: hsl(var(--hue) 90% 60%);
-  --radius: 16px;
-  --shadow: 0 10px 30px -10px hsl(var(--hue) 60% 3% / 0.6);
-  --maxw: 1180px;
+  --hue:222;
+  --bg:#080D18;
+  --bg-soft:#0B1322;
+  --surface:#101A2C;
+  --surface-2:#16223A;
+  --border:rgba(126,160,214,.16);
+  --border-strong:rgba(126,160,214,.28);
+  --text:#EAF0FA;
+  --text-dim:#A6B6CE;
+  --text-mute:#7287A4;
+  --accent:#5B8CFF;
+  --accent-2:#8E7BFF;
+  --accent-ink:#071021;
+  --glow:rgba(91,140,255,.35);
+  --radius:18px;
+  --radius-sm:12px;
+  --shadow:0 22px 50px -22px rgba(2,8,23,.75);
+  --shadow-soft:0 12px 30px -18px rgba(2,8,23,.65);
+  --maxw:1220px;
+  --nav-h:74px;
+  --ease:cubic-bezier(.22,.85,.3,1);
 }
 html[data-theme="light"]{
-  --bg: hsl(var(--hue) 45% 98%);
-  --bg-soft: hsl(var(--hue) 35% 95%);
-  --surface: hsl(0 0% 100%);
-  --surface-2: hsl(var(--hue) 30% 95%);
-  --border: hsl(var(--hue) 20% 87%);
-  --border-soft: hsl(var(--hue) 20% 90%);
-  --text: hsl(var(--hue) 35% 12%);
-  --text-dim: hsl(var(--hue) 15% 38%);
-  --text-mute: hsl(var(--hue) 10% 55%);
-  --accent: hsl(var(--hue) 75% 46%);
-  --accent-2: hsl(258 70% 48%);
-  --glow: hsl(var(--hue) 80% 55%);
-  --shadow: 0 10px 30px -10px hsl(var(--hue) 40% 70% / 0.35);
+  --bg:#F4F6FB;
+  --bg-soft:#EDF1F9;
+  --surface:#FFFFFF;
+  --surface-2:#EEF2FA;
+  --border:rgba(28,52,92,.12);
+  --border-strong:rgba(28,52,92,.22);
+  --text:#0C1830;
+  --text-dim:#41546F;
+  --text-mute:#7286A2;
+  --accent:#2E5BE6;
+  --accent-2:#6D4DE8;
+  --accent-ink:#FFFFFF;
+  --glow:rgba(46,91,230,.22);
+  --shadow:0 22px 48px -26px rgba(24,45,86,.35);
+  --shadow-soft:0 10px 26px -18px rgba(24,45,86,.35);
 }
-*{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Inter',sans-serif;
-  line-height:1.6;
-  overflow-x:hidden;
-  transition:background .4s ease, color .4s ease;
+  background:var(--bg);color:var(--text);
+  font-family:'Inter','Tajawal',system-ui,sans-serif;
+  line-height:1.7;overflow-x:hidden;
+  transition:background .5s var(--ease),color .5s var(--ease);
 }
-html[lang="ar"] body{font-family:'Tajawal','Inter',sans-serif;}
-img{max-width:100%;display:block;}
-a{color:inherit;text-decoration:none;}
-ul{list-style:none;}
-button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
-input,textarea,select{font-family:inherit;}
-::selection{background:var(--accent);color:#000;}
-::-webkit-scrollbar{width:10px;height:10px;}
-::-webkit-scrollbar-track{background:var(--bg);}
-::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+html[lang="ar"] body{font-family:'Tajawal','Inter',system-ui,sans-serif}
+html[lang="ar"] .display,h1,h2,h3{font-family:'Tajawal','Space Grotesk',sans-serif}
+html[lang="en"] .display,h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button,input,textarea,select{font-family:inherit;color:inherit}
+button{cursor:pointer;border:none;background:none}
+::selection{background:var(--accent);color:#fff}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:20px;border:3px solid var(--bg)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
 
-.container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
-.section{padding:110px 0;position:relative;}
-@media(max-width:768px){.section{padding:72px 0;}}
+.container{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:22px}
+.section{padding:104px 0;position:relative}
+@media(max-width:820px){.section{padding:74px 0}}
 
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--accent);font-weight:700;margin-bottom:14px;
-}
-.section-head{max-width:680px;margin-bottom:48px;}
-.section-head h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.02em;margin-bottom:12px;}
-.section-head p{color:var(--text-dim);font-size:1.02rem;}
-.cms-note{font-size:.78rem;color:var(--text-mute);margin-top:10px;font-style:italic;display:flex;gap:6px;align-items:center;}
-.cms-note i{width:14px;height:14px;}
+/* ============ BACKDROP FX ============ */
+#bgfx{position:fixed;inset:0;z-index:-3;pointer-events:none;overflow:hidden;background:
+  radial-gradient(1100px 620px at 82% -10%, color-mix(in srgb,var(--accent) 16%, transparent), transparent 62%),
+  radial-gradient(900px 560px at 8% 12%, color-mix(in srgb,var(--accent-2) 12%, transparent), transparent 60%);}
+#bggrid{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 82% 62% at 50% 0%, #000 10%, transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse 82% 62% at 50% 0%, #000 10%, transparent 78%);
+  transition:opacity .5s ease}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.22}
+.orb-a{width:520px;height:520px;background:var(--accent);top:-200px;inset-inline-start:-140px}
+.orb-b{width:460px;height:460px;background:var(--accent-2);top:22%;inset-inline-end:-190px}
 
-.accent-text{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+/* ============ SCROLL PROGRESS ============ */
+#scrollProgress{position:fixed;top:0;inset-inline-start:0;height:3px;width:0;z-index:1200;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 0 18px var(--glow)}
 
-.glass{
-  background:color-mix(in srgb, var(--surface) 92%, transparent);
-  border:1px solid var(--border);
-  backdrop-filter:blur(14px);
-  border-radius:var(--radius);
-}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:13px 24px;border-radius:999px;font-weight:600;font-size:.92rem;
-  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-  white-space:nowrap;
-}
-.btn i{width:17px;height:17px;}
-.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 10px 25px -8px hsl(var(--hue) 80% 50% / .55);}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 32px -8px hsl(var(--hue) 80% 50% / .65);}
-.btn-ghost{background:var(--surface);border:1px solid var(--border);color:var(--text);}
-.btn-ghost:hover{border-color:var(--accent);transform:translateY(-3px);}
-.btn-sm{padding:9px 16px;font-size:.82rem;}
-.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none !important;}
-
-.badge{
-  display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;
-  background:var(--surface-2);border:1px solid var(--border-soft);font-size:.74rem;color:var(--text-dim);font-weight:600;
-}
-.icon-circle{
-  width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 18%, var(--surface)),var(--surface-2));
-  border:1px solid var(--border-soft);color:var(--accent);flex-shrink:0;
-}
-.icon-circle i{width:21px;height:21px;}
-
-/* background fx */
-#bgfx{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;}
-#bgfx::before{
-  content:"";position:absolute;inset:0;
-  background-image:linear-gradient(var(--border-soft) 1px,transparent 1px),linear-gradient(90deg,var(--border-soft) 1px,transparent 1px);
-  background-size:52px 52px;opacity:.35;mask-image:radial-gradient(ellipse 70% 50% at 50% 0%, #000 40%, transparent 85%);
-}
-.glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.28;}
-.glow-1{width:480px;height:480px;background:var(--glow);top:-180px;left:-120px;}
-.glow-2{width:420px;height:420px;background:var(--accent-2);top:10%;right:-160px;}
-
-/* NAVBAR */
-.navbar{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:color-mix(in srgb, var(--bg) 78%, transparent);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border-soft);
-  transition:background .4s ease;
-}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px;}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;}
-.brand-mark{
-  width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:800;font-size:.9rem;
-  box-shadow:0 6px 18px -6px hsl(var(--hue) 80% 50% / .6);
-}
-.nav-links{display:flex;align-items:center;gap:6px;}
-.nav-link{
-  padding:10px 14px;border-radius:10px;font-size:.88rem;font-weight:600;color:var(--text-dim);
-  transition:color .2s,background .2s;position:relative;
-}
-.nav-link:hover,.nav-link.active{color:var(--text);background:var(--surface-2);}
-.admin-link{color:var(--accent) !important;}
-.nav-actions{display:flex;align-items:center;gap:8px;}
-.icon-btn{
-  width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-  background:var(--surface);border:1px solid var(--border-soft);color:var(--text);transition:all .2s;
-}
-.icon-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
-.icon-btn i{width:18px;height:18px;}
-#langLabel{font-size:.72rem;font-weight:800;margin-inline-start:2px;}
-#langToggle{width:auto;padding:0 10px;gap:4px;}
-.mobile-only{display:none;}
-
-@media(max-width:860px){
-  .nav-links{
-    position:fixed;inset-inline:0;top:72px;background:var(--bg);border-bottom:1px solid var(--border-soft);
-    flex-direction:column;align-items:stretch;padding:14px;gap:4px;
-    transform:translateY(-110%);opacity:0;transition:transform .35s ease, opacity .3s ease;
-    max-height:calc(100vh - 72px);overflow-y:auto;
-  }
-  .nav-links.open{transform:translateY(0);opacity:1;}
-  .nav-link{width:100%;}
-  .mobile-only{display:flex;}
+/* ============ NAVBAR ============ */
+.navbar{position:fixed;top:0;inset-inline:0;z-index:1000;height:var(--nav-h);
+  background:color-mix(in srgb,var(--bg) 72%, transparent);
+  backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid transparent;transition:background .4s ease,border-color .4s ease,height .35s ease}
+.navbar.scrolled{border-bottom-color:var(--border);background:color-mix(in srgb,var(--bg) 88%, transparent)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:100%;gap:18px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.02rem}
+.brand-mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--accent),var(--accent-2));color:#fff;font-weight:800;font-size:.82rem;letter-spacing:.02em;
+  box-shadow:0 12px 26px -12px var(--glow);position:relative;overflow:hidden}
+.brand-mark::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 62%);
+  transform:translateX(-130%);transition:transform .7s var(--ease)}
+.brand:hover .brand-mark::after{transform:translateX(130%)}
+.brand-text small{display:block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-mute);font-weight:700;line-height:1}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-link{position:relative;padding:9px 13px;border-radius:10px;font-size:.86rem;font-weight:600;color:var(--text-dim);transition:color .25s,background .25s,transform .25s}
+.nav-link::after{content:"";position:absolute;inset-inline:13px;bottom:5px;height:2px;border-radius:2px;background:var(--accent);
+  transform:scaleX(0);transform-origin:inline-start;transition:transform .35s var(--ease)}
+.nav-link:hover{color:var(--text);background:color-mix(in srgb,var(--surface-2) 70%,transparent)}
+.nav-link:hover::after,.nav-link.active::after{transform:scaleX(1)}
+.nav-link.active{color:var(--text)}
+.admin-link{color:var(--accent)}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.icon-btn{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:color-mix(in srgb,var(--surface) 82%,transparent);
+  border:1px solid var(--border);color:var(--text);transition:transform .3s var(--ease),border-color .3s,color .3s,background .3s}
+.icon-btn:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--accent)}
+.icon-btn i,.icon-btn svg{width:18px;height:18px}
+#langToggle{width:auto;padding-inline:12px;gap:6px;font-size:.74rem;font-weight:800;letter-spacing:.06em}
+.mobile-only{display:none}
+@media(max-width:920px){
+  .mobile-only{display:grid}
+  .nav-links{position:fixed;inset-inline:0;top:var(--nav-h);flex-direction:column;align-items:stretch;gap:4px;
+    background:color-mix(in srgb,var(--bg) 96%,transparent);backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);padding:16px 18px 22px;
+    transform:translateY(-115%);opacity:0;pointer-events:none;transition:transform .42s var(--ease),opacity .3s ease;
+    max-height:calc(100vh - var(--nav-h));overflow-y:auto}
+  .nav-links.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .nav-link{padding:13px 14px;font-size:.95rem}
+  .nav-link::after{inset-inline:14px}
 }
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:100px;}
-.hero-inner{position:relative;z-index:2;max-width:820px;}
-.hero-title{font-size:clamp(2.1rem,6vw,3.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:18px;}
-.hero-title span{display:block;}
-.hero-title .top-line{font-size:.5em;color:var(--text-dim);font-weight:600;display:block;margin-bottom:6px;}
-.hero-sub{font-size:1.1rem;color:var(--text-dim);max-width:640px;margin-bottom:34px;}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px;}
-.hero-socials{display:flex;gap:10px;flex-wrap:wrap;}
-.scroll-indicator{
-  position:absolute;bottom:34px;inset-inline-start:50%;transform:translateX(-50%);
-  width:44px;height:44px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
-  color:var(--text-dim);animation:bounce 2.4s infinite;z-index:2;
+/* ============ BUTTONS / BADGES ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 22px;border-radius:999px;
+  font-weight:700;font-size:.92rem;letter-spacing:.01em;position:relative;overflow:hidden;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s,color .3s,border-color .3s;white-space:nowrap}
+.btn i,.btn svg{width:17px;height:17px}
+.btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#fff;
+  box-shadow:0 18px 38px -18px var(--glow)}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.42) 50%,transparent 62%);
+  transform:translateX(-120%);transition:transform .8s var(--ease)}
+.btn-primary:hover::after{transform:translateX(120%)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 24px 46px -18px var(--glow)}
+.btn-ghost{background:color-mix(in srgb,var(--surface) 80%,transparent);border:1px solid var(--border-strong);color:var(--text)}
+.btn-ghost:hover{transform:translateY(-3px);border-color:var(--accent);color:var(--accent)}
+.btn-sm{padding:9px 15px;font-size:.82rem}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:999px;font-size:.75rem;font-weight:700;
+  background:color-mix(in srgb,var(--surface-2) 78%,transparent);border:1px solid var(--border);color:var(--text-dim)}
+.badge i,.badge svg{width:13px;height:13px;color:var(--accent)}
+.icon-circle{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex-shrink:0;
+  background:linear-gradient(150deg,color-mix(in srgb,var(--accent) 20%,var(--surface)),var(--surface-2));
+  border:1px solid var(--border);color:var(--accent);transition:transform .4s var(--ease)}
+.icon-circle i,.icon-circle svg{width:21px;height:21px}
+.glass{background:color-mix(in srgb,var(--surface) 76%,transparent);border:1px solid var(--border);
+  backdrop-filter:blur(16px) saturate(130%);-webkit-backdrop-filter:blur(16px) saturate(130%);border-radius:var(--radius)}
+
+/* ============ SECTION HEADERS ============ */
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);font-weight:800;margin-bottom:16px}
+.eyebrow::before{content:"";width:26px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+.section-head{max-width:720px;margin-bottom:52px}
+.section-head h2{font-size:clamp(1.95rem,4.4vw,3rem);font-weight:800;line-height:1.18;margin-bottom:14px}
+.section-head p{color:var(--text-dim);font-size:1.05rem;max-width:620px}
+.cms-note{font-size:.78rem;color:var(--text-mute);margin-top:12px;display:flex;align-items:center;gap:7px}
+.cms-note i,.cms-note svg{width:14px;height:14px;flex-shrink:0}
+.accent-text{background:linear-gradient(100deg,var(--accent),var(--accent-2) 55%,var(--accent));
+  background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 9s linear infinite}
+@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+
+/* ============ REVEAL / MOTION ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal-mask{clip-path:inset(0 0 100% 0);opacity:0;transform:translateY(18px);
+  transition:clip-path 1s var(--ease),opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal-mask.in{clip-path:inset(0 0 0 0);opacity:1;transform:none}
+.word{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.word-inner{display:inline-block;transform:translateY(105%);opacity:0;
+  transition:transform .95s var(--ease),opacity .8s ease}
+.kinetic.in .word-inner{transform:translateY(0);opacity:1}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:calc(var(--nav-h) + 42px);padding-bottom:70px}
+#heroSpot{position:absolute;inset:0;pointer-events:none;opacity:.55;
+  background:radial-gradient(420px 420px at var(--mx,50%) var(--my,30%), color-mix(in srgb,var(--accent) 18%, transparent), transparent 70%);
+  transition:opacity .5s ease}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;position:relative;z-index:2;width:100%}
+.hero-title{font-size:clamp(2.35rem,6.2vw,4.35rem);font-weight:800;line-height:1.08;letter-spacing:-.035em;margin-bottom:22px}
+.hero-title .top-line{display:block;font-size:.42em;letter-spacing:.02em;color:var(--text-dim);font-weight:600;margin-bottom:12px}
+.hero-sub{font-size:clamp(1.02rem,1.7vw,1.22rem);color:var(--text-dim);max-width:620px;margin-bottom:32px;line-height:1.85}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:26px}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;color:var(--text-mute);font-size:.82rem}
+.hero-meta .dot{width:6px;height:6px;border-radius:50%;background:#37D399;box-shadow:0 0 0 4px rgba(55,211,153,.16);animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.82)}}
+.hero-socials{display:flex;gap:9px;margin-top:22px}
+.hero-visual{position:relative}
+.hero-frame{position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--border-strong);
+  box-shadow:var(--shadow);transform:perspective(1200px) rotateY(-6deg) rotateX(3deg);transition:transform .8s var(--ease)}
+.hero-frame img{width:100%;height:min(58vh,520px);object-fit:cover;filter:saturate(1.05) contrast(1.02)}
+.hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,24,.12),rgba(8,13,24,.72))}
+html[data-theme="light"] .hero-frame::after{background:linear-gradient(180deg,rgba(10,22,48,.05),rgba(10,22,48,.55))}
+.hero-frame:hover{transform:perspective(1200px) rotateY(0deg) rotateX(0deg) translateY(-6px)}
+.float-card{position:absolute;display:flex;align-items:center;gap:11px;padding:13px 16px;border-radius:15px;
+  background:color-mix(in srgb,var(--surface) 82%,transparent);border:1px solid var(--border-strong);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--shadow-soft);font-size:.82rem;font-weight:700}
+.float-card small{display:block;font-size:.68rem;color:var(--text-mute);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.fc-1{top:22px;inset-inline-start:-22px;animation:floaty 7s ease-in-out infinite}
+.fc-2{bottom:26px;inset-inline-end:-18px;animation:floaty 8.5s ease-in-out infinite reverse}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
+.scroll-indicator{position:absolute;bottom:26px;inset-inline-start:50%;transform:translateX(-50%);width:42px;height:42px;
+  border-radius:50%;border:1px solid var(--border-strong);display:grid;place-items:center;color:var(--text-dim);z-index:3}
+[dir="rtl"] .scroll-indicator{transform:translateX(50%)}
+.scroll-indicator i,.scroll-indicator svg{width:18px;height:18px;animation:bounce 2.3s var(--ease) infinite}
+@keyframes bounce{0%,100%{transform:translateY(-3px);opacity:.6}50%{transform:translateY(5px);opacity:1}}
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .hero-frame{transform:none}
+  .hero-frame img{height:340px}
+  .fc-1{inset-inline-start:12px}
+  .fc-2{inset-inline-end:12px}
+  .scroll-indicator{display:none}
 }
-:dir(rtl) .scroll-indicator{transform:translateX(50%);}
-@keyframes bounce{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
 
-/* QUICK PROFILE */
-.profile-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:-40px;position:relative;z-index:3;}
-@media(max-width:900px){.profile-strip{grid-template-columns:repeat(2,1fr);}}
-.stat-card{padding:22px;display:flex;gap:14px;align-items:flex-start;}
-.stat-card h4{font-size:.78rem;color:var(--text-mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;font-weight:700;}
-.stat-card p{font-size:.95rem;font-weight:700;}
+/* ============ TICKER ============ */
+.ticker{border-block:1px solid var(--border);background:color-mix(in srgb,var(--surface) 46%,transparent);
+  padding:16px 0;overflow:hidden;position:relative}
+.ticker-track{display:flex;gap:44px;width:max-content;animation:slide 34s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-item{display:flex;align-items:center;gap:11px;font-size:.88rem;font-weight:700;color:var(--text-dim);white-space:nowrap;letter-spacing:.02em}
+.ticker-item i,.ticker-item svg{width:16px;height:16px;color:var(--accent)}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:start;}
-@media(max-width:860px){.about-grid{grid-template-columns:1fr;}}
-.about-bio{font-size:1.05rem;color:var(--text-dim);}
-.about-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
-.about-panel{padding:28px;display:flex;flex-direction:column;gap:18px;}
-.about-row{display:flex;gap:14px;align-items:flex-start;}
-.about-row h5{font-size:.95rem;font-weight:700;margin-bottom:2px;}
-.about-row p{font-size:.85rem;color:var(--text-dim);}
+/* ============ PROFILE STRIP ============ */
+.profile-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:-46px;position:relative;z-index:5}
+.stat-card{padding:24px;display:flex;gap:15px;align-items:flex-start;transition:transform .45s var(--ease),border-color .4s,box-shadow .45s}
+.stat-card:hover{transform:translateY(-7px);border-color:var(--border-strong);box-shadow:var(--shadow-soft)}
+.stat-card:hover .icon-circle{transform:rotate(-7deg) scale(1.06)}
+.stat-card h4{font-size:.71rem;color:var(--text-mute);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;font-weight:800}
+.stat-card .num{font-size:1.72rem;font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.stat-card p{font-size:.92rem;color:var(--text-dim);font-weight:600}
+@media(max-width:960px){.profile-strip{grid-template-columns:repeat(2,1fr);margin-top:-30px}}
+@media(max-width:520px){.profile-strip{grid-template-columns:1fr}}
 
-/* PROJECTS */
-.proj-toolbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:32px;}
-.search-box{
-  flex:1;min-width:220px;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;
-  background:var(--surface);border:1px solid var(--border-soft);
+/* ============ ABOUT ============ */
+.about-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:52px;align-items:start}
+.about-bio{font-size:1.07rem;color:var(--text-dim);line-height:1.95}
+.about-bio + .about-bio{margin-top:16px}
+.about-badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.about-panel{padding:28px;display:flex;flex-direction:column;gap:20px}
+.about-row{display:flex;gap:15px;align-items:flex-start;padding-bottom:18px;border-bottom:1px dashed var(--border)}
+.about-row:last-child{padding-bottom:0;border-bottom:none}
+.about-row h5{font-size:.98rem;font-weight:700;margin-bottom:3px}
+.about-row p{font-size:.88rem;color:var(--text-dim);line-height:1.75}
+.about-media{position:relative;margin-top:26px;border-radius:20px;overflow:hidden;border:1px solid var(--border)}
+.about-media img{width:100%;height:250px;object-fit:cover;transform:scale(1.02);transition:transform 1.1s var(--ease)}
+.about-media:hover img{transform:scale(1.1)}
+.about-media .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(8,13,24,.78));
+  display:flex;align-items:flex-end;padding:20px;color:#fff;font-weight:700;font-size:.92rem}
+@media(max-width:920px){.about-grid{grid-template-columns:1fr;gap:36px}}
+
+/* ============ PROJECTS ============ */
+.proj-toolbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:34px}
+.search-\boxed{flex:1;min-width:240px;display:flex;align-items:center;gap:11px;padding:13px 17px;border-radius:14px;
+  background:color-mix(in srgb,var(--surface) 80%,transparent);border:1px solid var(--border);transition:border-color .3s,box-shadow .3s}
+.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 15%,transparent)}
+.search-box i,.search-box svg{width:18px;height:18px;color:var(--text-mute);flex-shrink:0}
+.search-box input{background:none;border:none;outline:none;width:100%;font-size:.93rem}
+.filter-group{display:flex;gap:8px;flex-wrap:wrap}
+.filter-btn{padding:9px 17px;border-radius:999px;font-size:.82rem;font-weight:700;
+  background:color-mix(in srgb,var(--surface) 78%,transparent);border:1px solid var(--border);color:var(--text-dim);
+  transition:all .32s var(--ease)}
+.filter-btn:hover{color:var(--text);transform:translateY(-2px);border-color:var(--border-strong)}
+.filter-btn.active{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#fff;border-color:transparent;box-shadow:0 14px 28px -14px var(--glow)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:1000px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:660px){.proj-grid{grid-template-columns:1fr}}
+.proj-card{display:flex;flex-direction:column;overflow:hidden;position:relative;
+  transition:transform .5s var(--ease),border-color .45s,box-shadow .5s var(--ease)}
+.proj-card:hover{transform:translateY(-9px);border-color:color-mix(in srgb,var(--accent) 45%,var(--border));box-shadow:var(--shadow)}
+.proj-media{position:relative;height:186px;overflow:hidden;background:linear-gradient(135deg,var(--surface-2),var(--surface))}
+.proj-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform 1s var(--ease),filter .6s}
+.proj-card:hover .proj-media img{transform:scale(1.14)}
+.proj-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,24,.05),rgba(8,13,24,.62))}
+.proj-cat-tag{position:absolute;top:13px;inset-inline-start:13px;z-index:2;font-size:.66rem;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;padding:5px 11px;border-radius:999px;background:rgba(8,13,24,.6);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.proj-body{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.proj-body h3{font-size:1.08rem;font-weight:700;line-height:1.45}
+.proj-body p.desc{font-size:.88rem;color:var(--text-dim);flex:1;line-height:1.8}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag-pill{font-size:.7rem;padding:4px 10px;border-radius:999px;background:var(--surface-2);color:var(--text-dim);border:1px solid var(--border)}
+.proj-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border);margin-top:auto}
+.proj-link{display:inline-flex;align-items:center;gap:6px;font-size:.83rem;font-weight:700;color:var(--accent);transition:gap .3s var(--ease)}
+.proj-link:hover{gap:11px}
+.proj-link i,.proj-link svg{width:15px;height:15px}
+.proj-icon{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:var(--surface-2);border:1px solid var(--border);color:var(--accent)}
+.proj-icon i,.proj-icon svg{width:17px;height:17px}
+.empty-state{grid-column:1/-1;text-align:center;padding:64px 20px;color:var(--text-mute)}
+.empty-state i,.empty-state svg{width:32px;height:32px;margin-bottom:12px;opacity:.7}
+
+/* ============ SKILLS ============ */
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+@media(max-width:820px){.skills-grid{grid-template-columns:1fr}}
+.skill-card{padding:28px;transition:transform .45s var(--ease),border-color .4s}
+.skill-card:hover{transform:translateY(-6px);border-color:var(--border-strong)}
+.skill-card h3{display:flex;align-items:center;gap:11px;font-size:1.04rem;font-weight:700;margin-bottom:22px}
+.skill-card h3 i,.skill-card h3 svg{width:19px;height:19px;color:var(--accent)}
+.skill-row{margin-bottom:17px}
+.skill-row:last-child{margin-bottom:0}
+.skill-row .labels{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;margin-bottom:8px;gap:12px}
+.skill-row .labels span:first-child{font-weight:600}
+.skill-row .labels span:last-child{color:var(--text-mute);font-size:.74rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.bar-track{height:7px;border-radius:999px;background:var(--surface-2);overflow:hidden;position:relative}
+.bar-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  transition:width 1.25s var(--ease);position:relative}
+.bar-fill::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:translateX(-100%);animation:sweep 3.4s ease-in-out infinite}
+@keyframes sweep{0%{transform:translateX(-100%)}55%,100%{transform:translateX(100%)}}
+
+/* ============ TIMELINE ============ */
+.timeline{position:relative;padding-inline-start:6px}
+.t-line{position:absolute;inset-inline-start:11px;top:6px;bottom:6px;width:2px;background:var(--border);border-radius:2px;overflow:hidden}
+.t-line span{position:absolute;top:0;inset-inline-start:0;width:100%;height:0;background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  box-shadow:0 0 16px var(--glow)}
+.t-item{position:relative;padding-inline-start:46px;padding-bottom:38px}
+.t-item:last-child{padding-bottom:0}
+.t-dot{position:absolute;inset-inline-start:2px;top:4px;width:20px;height:20px;border-radius:50%;background:var(--bg);
+  border:3px solid var(--accent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 16%,transparent);transition:transform .45s var(--ease)}
+.t-item:hover .t-dot{transform:scale(1.22)}
+.t-item-inner{padding:22px 24px;border-radius:16px;border:1px solid transparent;transition:border-color .45s,background .45s,transform .45s var(--ease)}
+.t-item:hover .t-item-inner{background:color-mix(in srgb,var(--surface) 62%,transparent);border-color:var(--border);transform:translateX(-6px)}
+[dir="rtl"] .t-item:hover .t-item-inner{transform:translateX(6px)}
+.t-date{font-size:.72rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.14em;margin-bottom:7px}
+.t-item h3{font-size:1.08rem;font-weight:700;margin-bottom:7px}
+.t-item p{color:var(--text-dim);font-size:.93rem;max-width:660px;line-height:1.85}
+
+/* ============ EDUCATION ============ */
+.edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:820px){.edu-grid{grid-template-columns:1fr}}
+.edu-card{padding:26px;display:flex;gap:17px;transition:transform .45s var(--ease),border-color .4s,box-shadow .45s}
+.edu-card:hover{transform:translateY(-6px);border-color:var(--border-strong);box-shadow:var(--shadow-soft)}
+.edu-card:hover .icon-circle{transform:rotate(7deg) scale(1.05)}
+.edu-card h3{font-size:1.03rem;font-weight:700;margin-bottom:5px}
+.edu-card .inst{font-size:.89rem;color:var(--text-dim);margin-bottom:12px}
+.edu-card .meta{display:flex;gap:8px;flex-wrap:wrap}
+
+/* ============ GOALS ============ */
+.goals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:940px){.goals-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.goals-grid{grid-template-columns:1fr}}
+.goal-card{padding:28px;position:relative;overflow:hidden;transition:transform .5s var(--ease),border-color .45s}
+.goal-card::before{content:"";position:absolute;inset-inline-start:0;top:0;height:3px;width:0;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .6s var(--ease)}
+.goal-card:hover::before{width:100%}
+.goal-card:hover{transform:translateY(-8px);border-color:var(--border-strong)}
+.goal-card:hover .icon-circle{transform:translateY(-4px) scale(1.06)}
+.goal-index{position:absolute;top:16px;inset-inline-end:20px;font-size:2.4rem;font-weight:800;line-height:1;
+  color:color-mix(in srgb,var(--accent) 18%,transparent);letter-spacing:-.04em}
+.goal-card h3{font-size:1.03rem;font-weight:700;margin:16px 0 9px;line-height:1.5}
+.goal-card p{font-size:.88rem;color:var(--text-dim);line-height:1.85}
+
+/* ============ CONTACT ============ */
+.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:32px}
+@media(max-width:920px){.contact-grid{grid-template-columns:1fr}}
+.form-wrap{padding:30px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:.81rem;font-weight:700;margin-bottom:8px;color:var(--text-dim);letter-spacing:.02em}
+.form-control{width:100%;padding:13px 16px;border-radius:13px;background:color-mix(in srgb,var(--surface-2) 62%,transparent);
+  border:1px solid var(--border);font-size:.93rem;transition:border-color .3s,box-shadow .3s,background .3s;outline:none}
+.form-control:focus{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 14%,transparent);background:var(--surface)}
+textarea.form-control{resize:vertical;min-height:140px}
+.form-note{font-size:.76rem;color:var(--text-mute);margin-top:12px;line-height:1.8}
+.contact-info-card{padding:30px;display:flex;flex-direction:column;gap:20px}
+.contact-info-row{display:flex;gap:15px;align-items:center;padding-bottom:16px;border-bottom:1px dashed var(--border)}
+.contact-info-row:last-of-type{border-bottom:none;padding-bottom:0}
+.contact-info-row h5{font-size:.72rem;color:var(--text-mute);text-transform:uppercase;letter-spacing:.11em;margin-bottom:3px;font-weight:800}
+.contact-info-row p{font-size:.93rem;font-weight:600;word-break:break-word}
+.error-text{color:#FF6B6B;font-size:.82rem;margin-top:10px;min-height:1.2em;font-weight:600}
+.success-\boxed{display:none;align-items:center;gap:11px;padding:15px 17px;border-radius:14px;margin-top:15px;font-size:.88rem;
+  background:color-mix(in srgb,#37D399 12%,var(--surface));border:1px solid color-mix(in srgb,#37D399 38%,var(--border))}
+.success-box.show{display:flex;animation:popIn .45s var(--ease)}
+.success-box i,.success-box svg{width:19px;height:19px;color:#25B987;flex-shrink:0}
+@keyframes popIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--border);padding:64px 0 26px;background:color-mix(in srgb,var(--bg-soft) 88%,transparent);position:relative}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:38px;margin-bottom:42px}
+@media(max-width:880px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
+.footer-col h4{font-size:.76rem;margin-bottom:17px;color:var(--text-mute);text-transform:uppercase;letter-spacing:.14em;font-weight:800}
+.footer-col ul{display:flex;flex-direction:column;gap:11px}
+.footer-col a,.footer-col button{color:var(--text-dim);font-size:.89rem;transition:color .25s,transform .3s var(--ease);display:inline-block;text-align:start}
+.footer-col a:hover,.footer-col button:hover{color:var(--accent);transform:translateX(4px)}
+[dir="rtl"] .footer-col a:hover,[dir="rtl"] .footer-col button:hover{transform:translateX(-4px)}
+.footer-socials{display:flex;gap:9px;margin-top:18px}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:22px;border-top:1px solid var(--border);
+  font-size:.79rem;color:var(--text-mute)}
+.footer-tag{color:var(--text-dim);font-size:.9rem;line-height:1.9;max-width:330px}
+.newsletter{display:flex;gap:8px;margin-top:14px}
+.newsletter input{flex:1;min-width:0}
+
+/* ============ SCROLL TOP / TOAST ============ */
+#scrollTop{position:fixed;bottom:24px;inset-inline-end:24px;width:46px;height:46px;border-radius:14px;z-index:900;
+  background:color-mix(in srgb,var(--surface) 88%,transparent);border:1px solid var(--border-strong);color:var(--text);
+  display:grid;place-items:center;opacity:0;transform:translateY(18px);pointer-events:none;
+  transition:all .4s var(--ease);box-shadow:var(--shadow-soft)}
+#scrollTop.show{opacity:1;transform:none;pointer-events:auto}
+#scrollTop:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-4px)}
+#toast{position:fixed;bottom:24px;inset-inline-start:24px;z-index:3000;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+.toast-item{background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--border-strong);
+  padding:13px 18px;border-radius:14px;box-shadow:var(--shadow);font-size:.85rem;display:flex;align-items:center;gap:10px;
+  animation:toastIn .45s var(--ease);max-width:330px;backdrop-filter:blur(12px);pointer-events:auto}
+.toast-item i,.toast-item svg{width:17px;height:17px;color:var(--accent);flex-shrink:0}
+@keyframes toastIn{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
+
+/* ============ ADMIN ============ */
+#adminView{min-height:100vh;background:var(--bg)}
+.admin-login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.login-card{width:100%;max-width:410px;padding:38px 32px;text-align:center}
+.login-card .icon-circle{margin:0 auto 16px;width:56px;height:56px}
+.login-card h2{font-size:1.35rem;font-weight:800;margin-bottom:9px}
+.login-card p{font-size:.85rem;color:var(--text-dim);margin-bottom:22px;line-height:1.8}
+.login-card input{margin-bottom:14px;text-align:center}
+.back-link{display:inline-block;margin-top:18px;font-size:.83rem;color:var(--text-dim);transition:color .25s}
+.back-link:hover{color:var(--accent)}
+.admin-header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+  padding:17px 26px;background:color-mix(in srgb,var(--bg-soft) 92%,transparent);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.admin-header-left{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.05rem}
+.admin-header-left i,.admin-header-left svg{width:21px;height:21px;color:var(--accent)}
+.admin-header-right{display:flex;gap:9px;flex-wrap:wrap}
+.admin-tabs{display:flex;gap:6px;padding:20px 26px 0;flex-wrap:wrap;max-width:var(--maxw);margin:0 auto}
+.admin-tab{display:flex;align-items:center;gap:8px;padding:12px 19px;border-radius:12px 12px 0 0;font-size:.87rem;font-weight:700;
+  color:var(--text-dim);border:1px solid transparent;transition:all .3s var(--ease)}
+.admin-tab i,.admin-tab svg{width:16px;height:16px}
+.admin-tab:hover{color:var(--text)}
+.admin-tab.active{background:var(--surface);color:var(--accent);border-color:var(--border);border-bottom-color:var(--surface)}
+.admin-panel{max-width:var(--maxw);margin:0 auto;padding:28px 26px 90px}
+.admin-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
+.admin-card h3{font-size:1.02rem;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:9px}
+.admin-card h3 i,.admin-card h3 svg{width:18px;height:18px;color:var(--accent)}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.stats-row{grid-template-columns:1fr}}
+.mini-stat{padding:22px;background:var(--surface);border:1px solid var(--border);border-radius:16px;transition:transform .4s var(--ease)}
+.mini-stat:hover{transform:translateY(-5px)}
+.mini-stat .num{font-size:2rem;font-weight:800;color:var(--accent);line-height:1.1;letter-spacing:-.03em}
+.mini-stat .lbl{font-size:.79rem;color:var(--text-mute);margin-top:5px;font-weight:600}
+.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.form-row2{grid-template-columns:1fr}}
+.admin-entry{border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:14px;background:var(--bg-soft)}
+.admin-entry-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;gap:10px;flex-wrap:wrap}
+.admin-entry-head span{font-size:.78rem;font-weight:800;color:var(--text-mute);letter-spacing:.05em}
+.entry-actions{display:flex;gap:6px}
+.icon-btn-sm{width:32px;height:32px;border-radius:9px}
+.icon-btn-sm i,.icon-btn-sm svg{width:15px;height:15px}
+.msg-item{padding:18px;border:1px solid var(--border);border-radius:14px;margin-bottom:12px;background:var(--bg-soft)}
+.msg-item .mhead{display:flex;justify-content:space-between;font-size:.8rem;color:var(--text-mute);margin-bottom:9px;flex-wrap:wrap;gap:7px}
+.msg-item p{font-size:.91rem;color:var(--text-dim);line-height:1.8}
+.msg-item .mname{color:var(--text);font-weight:700}
+.admin-footer-bar{display:flex;justify-content:flex-end;gap:10px;margin-top:8px;flex-wrap:wrap}
+
+/* ============ REDUCED MOTION ============ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.18s !important}
+  .reveal,.reveal-mask{opacity:1 !important;transform:none !important;clip-path:none !important}
+  .word-inner{transform:none !important;opacity:1 !important}
 }
-.search-box i{width:18px;height:18px;color:var(--text-mute);flex-shrink:0;}
-.search-box input{background:none;border:none;color:var(--text);width:100%;font-size:.92rem;outline:none;}
-.filter-group{display:flex;gap:8px;flex-wrap:wrap;}
-.filter-btn{
-  padding:9px 16px;border-radius:999px;font-size:.82rem;font-weight:700;
-  background:var(--surface);border:1px solid var(--border-soft);color:var(--text-dim);transition:all .2s;
-}
-.filter-btn:hover{color:var(--text);}
-.filter-btn.active{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-color:transparent;}
-.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-@media(max-width:980px){.proj-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:640px){.proj-grid{grid-template-columns:1fr;}}
-.proj-card{padding:24px;display:flex;flex-direction:column;gap:14px;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;}
-.proj-card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--accent) 50%, var(--border));box-shadow:var(--shadow);}
-.proj-top{display:flex;justify-content:space-between;align-items:flex-start;}
-.proj-card h3{font-size:1.08rem;font-weight:700;margin-bottom:6px;}
-.proj-card p.desc{font-size:.88rem;color:var(--text-dim);flex-grow:1;}
-.proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
-.tag-pill{font-size:.7rem;padding:4px 10px;border-radius:999px;background:var(--surface-2);color:var(--text-dim);border:1px solid var(--border-soft);}
-.proj-footer{display:flex;justify-content:space-between;align-items:center;margin-top:6px;}
-.proj-link{display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;color:var(--accent);}
-.proj-link i{width:15px;height:15px;}
-.proj-cat-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-mute);font-weight:700;}
-.empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-mute);}
-
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
-@media(max-width:780px){.skills-grid{grid-template-columns:1fr;}}
-.skill-card{padding:26px;}
-.skill-card h3{display:flex;align-items:center;gap:10px;font-size:1.02rem;margin-bottom:20px;}
-.skill-row{margin-bottom:16px;}
-.skill-row:last-child{margin-bottom:0;}
-.skill-row .labels{display:flex;justify-content:space-between;font-size:.84rem;margin-bottom:7px;}
-.skill-row .labels span:last-child{color:var(--text-mute);font-size:.76rem;}
-.bar-track{height:7px;border-radius:999px;background:var(--surface-2);overflow:hidden;}
-.bar-fill{height:100%;border-radius:999px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width 1.1s cubic-bezier(.3,.9,.3,1);}
-
-/* TIMELINE */
-.timeline{position:relative;padding-inline-start:28px;border-inline-start:2px solid var(--border);}
-.t-item{position:relative;padding-bottom:36px;padding-inline-start:28px;}
-.t-item:last-child{padding-bottom:0;}
-.t-dot{
-  position:absolute;inset-inline-start:-39px;top:0;width:20px;height:20px;border-radius:50%;
-  background:var(--bg);border:3px solid var(--accent);box-shadow:0 0 0 5px color-mix(in srgb, var(--accent) 15%, transparent);
-}
-.t-date{font-size:.76rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
-.t-item h3{font-size:1.05rem;font-weight:700;margin-bottom:6px;}
-.t-item p{color:var(--text-dim);font-size:.92rem;max-width:620px;}
-
-/* EDUCATION */
-.edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-@media(max-width:780px){.edu-grid{grid-template-columns:1fr;}}
-.edu-card{padding:26px;display:flex;gap:16px;}
-.edu-card h3{font-size:1.02rem;font-weight:700;margin-bottom:4px;}
-.edu-card .inst{font-size:.88rem;color:var(--text-dim);margin-bottom:10px;}
-.edu-card .meta{display:flex;gap:10px;flex-wrap:wrap;}
-.placeholder-text{color:var(--text-mute);font-style:italic;}
-
-/* GOALS */
-.goals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-@media(max-width:900px){.goals-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:560px){.goals-grid{grid-template-columns:1fr;}}
-.goal-card{padding:26px;}
-.goal-card h3{font-size:1rem;font-weight:700;margin:14px 0 8px;}
-.goal-card p{font-size:.86rem;color:var(--text-dim);}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
-@media(max-width:860px){.contact-grid{grid-template-columns:1fr;}}
-.form-group{margin-bottom:18px;}
-.form-group label{display:block;font-size:.82rem;font-weight:700;margin-bottom:8px;color:var(--text-dim);}
-.form-control{
-  width:100%;padding:13px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--border-soft);
-  color:var(--text);font-size:.92rem;transition:border-color .2s;
-}
-.form-control:focus{border-color:var(--accent);}
-textarea.form-control{resize:vertical;min-height:130px;}
-.form-note{font-size:.76rem;color:var(--text-mute);margin-top:10px;}
-.contact-info-card{padding:28px;display:flex;flex-direction:column;gap:20px;}
-.contact-info-row{display:flex;gap:14px;align-items:center;}
-.contact-info-row h5{font-size:.78rem;color:var(--text-mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;}
-.contact-info-row p{font-size:.92rem;font-weight:600;}
-.error-text{color:#ff7777;font-size:.8rem;margin-top:8px;min-height:1em;}
-.success-box{display:none;align-items:center;gap:10px;background:color-mix(in srgb, var(--accent) 12%, var(--surface));border:1px solid color-mix(in srgb, var(--accent) 40%, var(--border));padding:14px 16px;border-radius:12px;margin-top:14px;font-size:.88rem;}
-.success-box.show{display:flex;}
-
-/* FOOTER */
-footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:var(--bg-soft);}
-.footer-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:40px;}
-.footer-col h4{font-size:.85rem;margin-bottom:16px;color:var(--text-mute);text-transform:uppercase;letter-spacing:.06em;}
-.footer-col ul{display:flex;flex-direction:column;gap:10px;}
-.footer-col a{color:var(--text-dim);font-size:.88rem;transition:color .2s;}
-.footer-col a:hover{color:var(--accent);}
-.footer-socials{display:flex;gap:10px;}
-.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;border-top:1px solid var(--border-soft);font-size:.78rem;color:var(--text-mute);}
-
-/* SCROLL TOP */
-#scrollTop{
-  position:fixed;bottom:26px;inset-inline-end:26px;width:46px;height:46px;border-radius:50%;z-index:900;
-  background:var(--surface);border:1px solid var(--border);color:var(--text);display:flex;align-items:center;justify-content:center;
-  opacity:0;transform:translateY(16px);pointer-events:none;transition:all .3s ease;box-shadow:var(--shadow);
-}
-#scrollTop.show{opacity:1;transform:translateY(0);pointer-events:auto;}
-
-/* TOAST */
-#toast{
-  position:fixed;bottom:26px;inset-inline-start:26px;z-index:3000;display:flex;flex-direction:column;gap:10px;
-}
-.toast-item{
-  background:var(--surface);border:1px solid var(--border);padding:13px 18px;border-radius:12px;box-shadow:var(--shadow);
-  font-size:.85rem;display:flex;align-items:center;gap:10px;animation:toastIn .3s ease;max-width:320px;
-}
-.toast-item i{width:16px;height:16px;color:var(--accent);flex-shrink:0;}
-@keyframes toastIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
-.reveal.in{opacity:1;transform:translateY(0);}
-
-/* ADMIN */
-#adminView{min-height:100vh;}
-.admin-login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
-.login-card{width:100%;max-width:400px;padding:36px 30px;text-align:center;}
-.login-card i{width:34px;height:34px;color:var(--accent);margin-bottom:14px;}
-.login-card h2{font-size:1.3rem;font-weight:800;margin-bottom:8px;}
-.login-card p{font-size:.84rem;color:var(--text-dim);margin-bottom:20px;}
-.login-card input{margin-bottom:14px;text-align:center;}
-.back-link{display:block;margin-top:16px;font-size:.82rem;color:var(--text-dim);}
-.back-link:hover{color:var(--accent);}
-
-.admin-header{
-  position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
-  padding:18px 26px;background:var(--bg-soft);border-bottom:1px solid var(--border-soft);flex-wrap:wrap;gap:12px;
-}
-.admin-header-left{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.02rem;}
-.admin-header-left i{width:20px;height:20px;color:var(--accent);}
-.admin-header-right{display:flex;gap:10px;}
-.admin-tabs{display:flex;gap:6px;padding:16px 26px 0;flex-wrap:wrap;max-width:var(--maxw);margin:0 auto;}
-.admin-tab{
-  display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px 10px 0 0;font-size:.86rem;font-weight:700;
-  color:var(--text-dim);border:1px solid transparent;
-}
-.admin-tab i{width:16px;height:16px;}
-.admin-tab.active{background:var(--surface);color:var(--accent);border-color:var(--border-soft);border-bottom-color:var(--surface);}
-.admin-panel{max-width:var(--maxw);margin:0 auto;padding:30px 26px 80px;}
-.admin-card{background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--radius);padding:24px;margin-bottom:20px;}
-.admin-card h3{font-size:1rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
-.admin-card h3 i{width:17px;height:17px;color:var(--accent);}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-@media(max-width:860px){.stats-row{grid-template-columns:repeat(2,1fr);}}
-.mini-stat{padding:20px;background:var(--surface);border:1px solid var(--border-soft);border-radius:14px;}
-.mini-stat .num{font-size:1.7rem;font-weight:800;color:var(--accent);}
-.mini-stat .lbl{font-size:.78rem;color:var(--text-mute);margin-top:4px;}
-.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-@media(max-width:700px){.form-row2{grid-template-columns:1fr;}}
-.admin-entry{border:1px solid var(--border-soft);border-radius:12px;padding:18px;margin-bottom:14px;background:var(--bg-soft);}
-.admin-entry-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
-.admin-entry-head span{font-size:.78rem;font-weight:800;color:var(--text-mute);}
-.entry-actions{display:flex;gap:6px;}
-.icon-btn-sm{width:32px;height:32px;border-radius:8px;}
-.icon-btn-sm i{width:15px;height:15px;}
-.msg-item{padding:16px;border:1px solid var(--border-soft);border-radius:12px;margin-bottom:12px;background:var(--bg-soft);}
-.msg-item .mhead{display:flex;justify-content:space-between;font-size:.8rem;color:var(--text-mute);margin-bottom:8px;flex-wrap:wrap;gap:6px;}
-.msg-item p{font-size:.9rem;color:var(--text-dim);}
-.msg-item .mname{color:var(--text);font-weight:700;}
-.admin-footer-bar{display:flex;justify-content:flex-end;gap:10px;margin-top:6px;}
 </style>
 </head>
 <body>
 
-<div id="bgfx"><div class="glow glow-1"></div><div class="glow glow-2"></div></div>
+<div id="bgfx"><div class="orb orb-a"></div><div class="orb orb-b"></div></div>
+<div id="bggrid"></div>
+<div id="scrollProgress"></div>
 
+<!-- ================= NAVBAR ================= -->
 <nav class="navbar" id="navbar">
   <div class="container nav-inner">
-    <a href="#home" class="brand"><span class="brand-mark">MM</span><span data-i18n="brand.name">مروان مختار</span></a>
+    <a href="#home" class="brand">
+      <span class="brand-mark">MM</span>
+      <span class="brand-text">
+        <span data-i18n="brand.name">مروان مختار</span>
+        <small data-i18n="brand.role">Computer Science</small>
+      </span>
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home" class="nav-link" data-i18n="nav.home">الرئيسية</a></li>
       <li><a href="#about" class="nav-link" data-i18n="nav.about">نبذة</a></li>
@@ -395,7 +500,9 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
       <li><button class="nav-link admin-link" id="navAdminBtn" data-i18n="nav.admin">لوحة التحكم</button></li>
     </ul>
     <div class="nav-actions">
-      <button class="icon-btn" id="langToggle" title="Language"><i data-lucide="languages"></i><span id="langLabel">EN</span></button>
+      <button class="icon-btn" id="langToggle" title="Language / اللغة">
+        <i data-lucide="languages"></i><span id="langLabel">EN</span>
+      </button>
       <button class="icon-btn" id="themeToggle" title="Theme"><i data-lucide="moon"></i></button>
       <button class="icon-btn mobile-only" id="menuToggle" title="Menu"><i data-lucide="menu"></i></button>
     </div>
@@ -404,90 +511,156 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
 
 <main id="siteMain">
 
+  <!-- ================= HERO ================= -->
   <section id="home" class="hero">
-    <div class="container hero-inner">
-      <p class="eyebrow reveal"><i data-lucide="sparkles" style="width:14px;height:14px;"></i><span data-i18n="hero.eyebrow">طالب علوم حاسوب • مطوّر منتجات تقنية</span></p>
-      <h1 class="hero-title reveal">
-        <span class="top-line" data-i18n="hero.greeting">أهلًا، أنا</span>
-        <span class="accent-text" data-i18n="hero.name">مروان مختار عوض علي</span>
-      </h1>
-      <p class="hero-sub reveal" data-i18n="hero.subtitle">أبني أنظمة ذكاء اصطناعي، روبوتات، وتطبيقات ويب — بشغف حقيقي بعلوم الحاسوب وتحويل الأفكار إلى منتجات تعمل فعليًا.</p>
-      <div class="hero-actions reveal">
-        <a href="#projects" class="btn btn-primary"><span data-i18n="hero.ctaProjects">استعرض المشاريع</span><i data-lucide="arrow-down"></i></a>
-        <a href="#contact" class="btn btn-ghost"><span data-i18n="hero.ctaContact">تواصل معي</span><i data-lucide="send"></i></a>
+    <div id="heroSpot"></div>
+    <div class="container hero-grid">
+      <div class="hero-inner">
+        <p class="eyebrow reveal"><i data-lucide="sparkles" style="width:14px;height:14px"></i><span data-i18n="hero.eyebrow">طالب علوم حاسوب • مطوّر منتجات تقنية</span></p>
+        <h1 class="hero-title">
+          <span class="top-line" data-i18n="hero.greeting">أهلًا، أنا</span>
+          <span class="accent-text kinetic" id="heroName" data-i18n="hero.name">مروان مختار عوض علي</span>
+        </h1>
+        <p class="hero-sub reveal" data-i18n="hero.subtitle">أبني أنظمة ذكاء اصطناعي، روبوتات، وتطبيقات ويب — بشغف حقيقي بعلوم الحاسوب وتحويل الأفكار إلى منتجات تعمل فعليًا.</p>
+        <div class="hero-actions reveal">
+          <a href="#projects" class="btn btn-primary magnetic"><span data-i18n="hero.ctaProjects">استعرض المشاريع</span><i data-lucide="arrow-down"></i></a>
+          <a href="#contact" class="btn btn-ghost magnetic"><span data-i18n="hero.ctaContact">تواصل معي</span><i data-lucide="send"></i></a>
+        </div>
+        <div class="hero-meta reveal">
+          <span class="dot"></span>
+          <span data-i18n="hero.availability">متاح للتدريب والتعاون التقني</span>
+          <span style="opacity:.4">•</span>
+          <span data-i18n="hero.location">العمل عن بُعد ممكن</span>
+        </div>
+        <div class="hero-socials reveal" id="heroSocials"></div>
       </div>
-      <div class="hero-socials reveal" id="heroSocials"></div>
+
+      <div class="hero-visual reveal">
+        <div class="hero-frame">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1100&q=75" alt="Developer workspace with code on screen" loading="eager">
+        </div>
+        <div class="float-card fc-1">
+          <div class="icon-circle" style="width:38px;height:38px;border-radius:11px"><i data-lucide="bot"></i></div>
+          <div><small data-i18n="hero.card1lbl">Focus</small><span data-i18n="hero.card1val">AI &amp; Machine Learning</span></div>
+        </div>
+        <div class="float-card fc-2">
+          <div class="icon-circle" style="width:38px;height:38px;border-radius:11px"><i data-lucide="cpu"></i></div>
+          <div><small data-i18n="hero.card2lbl">Build</small><span data-i18n="hero.card2val">Robotics &amp; Web Systems</span></div>
+        </div>
+      </div>
     </div>
     <a href="#profile" class="scroll-indicator" aria-label="scroll down"><i data-lucide="chevron-down"></i></a>
   </section>
 
-  <section id="profile">
+  <!-- ================= TICKER ================= -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+
+  <!-- ================= QUICK PROFILE ================= -->
+  <section id="profile" style="padding-bottom:40px">
     <div class="container">
       <div class="profile-strip">
         <div class="stat-card glass reveal">
           <div class="icon-circle"><i data-lucide="graduation-cap"></i></div>
-          <div><h4 data-i18n="profile.field_lbl">مجال الدراسة</h4><p data-i18n="profile.field_val">علوم الحاسوب</p></div>
+          <div>
+            <h4 data-i18n="profile.field_lbl">مجال الدراسة</h4>
+            <p data-i18n="profile.field_val">علوم الحاسوب</p>
+          </div>
         </div>
         <div class="stat-card glass reveal">
           <div class="icon-circle"><i data-lucide="cpu"></i></div>
-          <div><h4 data-i18n="profile.focus_lbl">مجالات التركيز</h4><p data-i18n="profile.focus_val">ذكاء اصطناعي • روبوتات • ويب</p></div>
+          <div>
+            <h4 data-i18n="profile.focus_lbl">مجالات التركيز</h4>
+            <p data-i18n="profile.focus_val">ذكاء اصطناعي • روبوتات • ويب</p>
+          </div>
         </div>
         <div class="stat-card glass reveal">
-          <div class="icon-circle"><i data-lucide="user"></i></div>
-          <div><h4 data-i18n="profile.status_lbl">الحالة الحالية</h4><p data-i18n="profile.status_val">طالب وباني منتجات</p></div>
+          <div class="icon-circle"><i data-lucide="folder-git-2"></i></div>
+          <div>
+            <h4 data-i18n="profile.projects_lbl">مشاريع موثّقة</h4>
+            <div class="num"><span class="count-up" data-count="0">0</span>+</div>
+          </div>
         </div>
         <div class="stat-card glass reveal">
           <div class="icon-circle"><i data-lucide="briefcase"></i></div>
-          <div><h4 data-i18n="profile.open_lbl">متاح لـ</h4><p data-i18n="profile.open_val">تدريب وتعاون تقني</p></div>
+          <div>
+            <h4 data-i18n="profile.open_lbl">متاح لـ</h4>
+            <p data-i18n="profile.open_val">تدريب وتعاون تقني</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ================= ABOUT ================= -->
   <section id="about" class="section">
     <div class="container">
       <div class="about-grid">
         <div>
           <p class="eyebrow reveal" data-i18n="about.eyebrow">نبذة عني</p>
-          <h2 class="reveal" style="font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:20px;letter-spacing:-.02em;" data-i18n="about.title">بُناء رقمي، شغوف بالتفاصيل التقنية</h2>
-          <p class="about-bio reveal" id="aboutBioText">...</p>
+          <h2 class="reveal" style="font-size:clamp(1.95rem,4.2vw,2.85rem);font-weight:800;margin-bottom:22px;line-height:1.22" data-i18n="about.title">بُناء رقمي، شغوف بالتفاصيل التقنية</h2>
+          <p class="about-bio reveal" id="aboutBioText">…</p>
           <div class="about-badges reveal">
-            <span class="badge"><i data-lucide="bot" style="width:13px;height:13px;"></i><span data-i18n="about.badge1">ذكاء اصطناعي</span></span>
-            <span class="badge"><i data-lucide="cpu" style="width:13px;height:13px;"></i><span data-i18n="about.badge2">روبوتات</span></span>
-            <span class="badge"><i data-lucide="globe" style="width:13px;height:13px;"></i><span data-i18n="about.badge3">تطوير ويب</span></span>
-            <span class="badge"><i data-lucide="layers" style="width:13px;height:13px;"></i><span data-i18n="about.badge4">علوم حاسوب</span></span>
+            <span class="badge"><i data-lucide="bot"></i><span data-i18n="about.badge1">ذكاء اصطناعي</span></span>
+            <span class="badge"><i data-lucide="cpu"></i><span data-i18n="about.badge2">روبوتات</span></span>
+            <span class="badge"><i data-lucide="globe"></i><span data-i18n="about.badge3">تطوير ويب</span></span>
+            <span class="badge"><i data-lucide="layers"></i><span data-i18n="about.badge4">علوم حاسوب</span></span>
+          </div>
+          <div class="about-media reveal">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1100&q=75" alt="Circuit board close-up" loading="lazy">
+            <div class="overlay"><span data-i18n="about.mediaCaption">من الدارة إلى النظام — تعلّم بالممارسة والبناء المستمر.</span></div>
           </div>
         </div>
+
         <div class="about-panel glass reveal">
           <div class="about-row">
             <div class="icon-circle"><i data-lucide="target"></i></div>
-            <div><h5 data-i18n="about.r1t">النهج</h5><p data-i18n="about.r1d">تعلّم بالممارسة، وبناء منتجات حقيقية بدلًا من الأفكار فقط.</p></div>
+            <div>
+              <h5 data-i18n="about.r1t">النهج</h5>
+              <p data-i18n="about.r1d">تعلّم بالممارسة، وبناء منتجات حقيقية بدلًا من الأفكار فقط.</p>
+            </div>
           </div>
           <div class="about-row">
             <div class="icon-circle"><i data-lucide="brain"></i></div>
-            <div><h5 data-i18n="about.r2t">طريقة التفكير</h5><p data-i18n="about.r2d">حل المشكلات بعقلية هندسية، من الفكرة إلى نظام يعمل فعليًا.</p></div>
+            <div>
+              <h5 data-i18n="about.r2t">طريقة التفكير</h5>
+              <p data-i18n="about.r2d">حل المشكلات بعقلية هندسية، من الفكرة إلى نظام يعمل فعليًا.</p>
+            </div>
           </div>
           <div class="about-row">
             <div class="icon-circle"><i data-lucide="rocket"></i></div>
-            <div><h5 data-i18n="about.r3t">الطموح</h5><p data-i18n="about.r3d">المساهمة في مجالات الذكاء الاصطناعي والروبوتات الذكية مستقبلًا.</p></div>
+            <div>
+              <h5 data-i18n="about.r3t">الطموح</h5>
+              <p data-i18n="about.r3d">المساهمة في مجالات الذكاء الاصطناعي والروبوتات الذكية مستقبلًا.</p>
+            </div>
+          </div>
+          <div class="about-row">
+            <div class="icon-circle"><i data-lucide="book-open"></i></div>
+            <div>
+              <h5 data-i18n="about.r4t">التعلّم المستمر</h5>
+              <p data-i18n="about.r4d">أساسيات قوية في علوم الحاسوب، مع تحديث مستمر للأدوات والتقنيات.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="projects" class="section">
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects" class="section" style="background:color-mix(in srgb,var(--bg-soft) 55%,transparent);border-block:1px solid var(--border)">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="projects.eyebrow">أعمالي</p>
-        <h2 data-i18n="projects.title">مشاريع مختارة</h2>
-        <p data-i18n="projects.subtitle">مجموعة من المشاريع التقنية التي تعكس اهتمامي بالذكاء الاصطناعي والروبوتات وتطوير الويب.</p>
-        <p class="cms-note"><i data-lucide="info"></i><span data-i18n="projects.cmsNote">يمكن تحديث هذا المحتوى فعليًا من لوحة التحكم (Admin Dashboard).</span></p>
+      <div class="section-head">
+        <p class="eyebrow reveal" data-i18n="projects.eyebrow">أعمالي</p>
+        <h2 class="reveal" data-i18n="projects.title">مشاريع مختارة</h2>
+        <p class="reveal" data-i18n="projects.subtitle">مجموعة من المشاريع التقنية التي تعكس اهتمامي بالذكاء الاصطناعي والروبوتات وتطوير الويب.</p>
+        <p class="cms-note reveal"><i data-lucide="info"></i><span data-i18n="projects.cmsNote">يمكن تحديث هذا المحتوى فعليًا من لوحة التحكم (Admin Dashboard).</span></p>
       </div>
+
       <div class="proj-toolbar reveal">
         <div class="search-box">
           <i data-lucide="search"></i>
-          <input type="text" id="projectSearch" data-i18n-ph="projects.searchPh" placeholder="ابحث في المشاريع...">
+          <input type="text" id="projectSearch" data-i18n-ph="projects.searchPh" placeholder="ابحث في المشاريع..." autocomplete="off">
         </div>
         <div class="filter-group" id="filterGroup">
           <button class="filter-btn active" data-filter="all" data-i18n="projects.f_all">الكل</button>
@@ -497,123 +670,117 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
           <button class="filter-btn" data-filter="cs" data-i18n="projects.f_cs">علوم حاسوب</button>
         </div>
       </div>
+
       <div class="proj-grid" id="projectsGrid"></div>
     </div>
   </section>
 
+  <!-- ================= SKILLS ================= -->
   <section id="skills" class="section">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="skills.eyebrow">القدرات</p>
-        <h2 data-i18n="skills.title">المهارات التقنية</h2>
-        <p data-i18n="skills.subtitle">تقييم ذاتي لمستوى الإلمام الحالي بالأدوات والتقنيات المختلفة.</p>
+      <div class="section-head">
+        <p class="eyebrow reveal" data-i18n="skills.eyebrow">القدرات</p>
+        <h2 class="reveal" data-i18n="skills.title">المهارات التقنية</h2>
+        <p class="reveal" data-i18n="skills.subtitle">تقييم ذاتي لمستوى الإلمام الحالي بالأدوات والتقنيات المختلفة.</p>
       </div>
-      <div class="skills-grid">
-        <div class="skill-card glass reveal">
-          <h3><i data-lucide="code-2" style="width:18px;height:18px;color:var(--accent);"></i><span data-i18n="skills.c1">لغات البرمجة</span></h3>
-          <div class="skill-row"><div class="labels"><span>Python</span><span data-i18n="skills.lvl_adv">متقدم</span></div><div class="bar-track"><div class="bar-fill" data-target="90%"></div></div></div>
-          <div class="skill-row"><div class="labels"><span>JavaScript</span><span data-i18n="skills.lvl_int">متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="70%"></div></div></div>
-          <div class="skill-row"><div class="labels"><span>C / C++</span><span data-i18n="skills.lvl_int">متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="70%"></div></div></div>
-          <div class="skill-row"><div class="labels"><span>Java</span><span data-i18n="skills.lvl_int">متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="65%"></div></div></div>
-        </div>
-        <div class="skill-card glass reveal">
-          <h3><i data-lucide="bot" style="width:18px;height:18px;color:var(--accent);"></i><span data-i18n="skills.c2">الذكاء الاصطناعي</span></h3>
-          <div class="skill-row"><div class="labels"><span data-i18n="skills.ml">أساسيات تعلّم الآلة</span><span data-i18n="skills.lvl_int">متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="68%"></div></div></div>
-          <div class="skill-row"><div class="labels"><span>TensorFlow / scikit-learn</span><span data-i18n="skills.lvl_int">متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="60%"></div></div></div>
-          <div class="skill-row"><div class="labels"><span data-i18n="skills.cv">رؤية حاسوبية</span><span data-i18n="skills.lvl_begint">مبتدئ-متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="50%"></div></div></div>
-          <div class="skill-row"><div class="labels"><span data-i18n="skills.da">تحليل البيانات</span><span data-i18n="skills.lvl_int">متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="65%"></div></div></div>
-        </div>
-        <div class="skill-card glass reveal">
-          <h3><i data-lucide="cpu" style="width:18px;height:18px;color:var(--accent);"></i><span data-i18n="skills.c3">الروبوتات والأنظمة المدمجة</span></h3>
-          <div class="skill-row"><div class="labels"><span>Arduino</span><span data-i18n="skills.lvl_int">متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="68%"></div></div></div>
-          <div class="skill-row"><div class="labels"><span data-i18n="skills.sensors">الحساسات والمشغلات</span><span data-i18n="skills.lvl_int">متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="62%"></div></div></div>
-          <div class="skill-row"><div class="labels"><span>Raspberry Pi</span><span data-i18n="skills.lvl_beg">مبتدئ</span></div><div class="bar-track"><div class="bar-fill" data-target="40%"></div></div></div>
-          <div class="skill-row"><div class="labels"><span data-i18n="skills.control">منطق التحكم بالروبوت</span><span data-i18n="skills.lvl_begint">مبتدئ-متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="50%"></div></div></div>
-        </div>
-        <div class="skill-card glass reveal">
-          <h3><i data-lucide="globe" style="width:18px;height:18px;color:var(--accent);"></i><span data-i18n="skills.c4">تطوير الويب</span></h3>
-          <div class="skill-row"><div class="labels"><span>HTML / CSS</span><span data-i18n="skills.lvl_adv">متقدم</span></div><div class="bar-track"><div class="bar-fill" data-target="88%"></div></div></div>
-          <div class="skill-row"><div class="labels"><span>JavaScript / DOM</span><span data-i18n="skills.lvl_int">متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="72%"></div></div></div>
-          <div class="skill-row"><div class="labels"><span>React (أساسيات)</span><span data-i18n="skills.lvl_begint">مبتدئ-متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="50%"></div></div></div>
-          <div class="skill-row"><div class="labels"><span>Node.js (أساسيات)</span><span data-i18n="skills.lvl_begint">مبتدئ-متوسط</span></div><div class="bar-track"><div class="bar-fill" data-target="50%"></div></div></div>
-        </div>
-      </div>
+      <div class="skills-grid" id="skillsGrid"></div>
     </div>
   </section>
 
-  <section id="journey" class="section">
+  <!-- ================= JOURNEY ================= -->
+  <section id="journey" class="section" style="background:color-mix(in srgb,var(--bg-soft) 55%,transparent);border-block:1px solid var(--border)">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="journey.eyebrow">المسار</p>
-        <h2 data-i18n="journey.title">رحلتي التقنية</h2>
-        <p data-i18n="journey.subtitle">محطات تطوّر اهتماماتي ومهاراتي حتى الوصول إلى بناء هذا الموقع نفسه.</p>
+      <div class="section-head">
+        <p class="eyebrow reveal" data-i18n="journey.eyebrow">المسار</p>
+        <h2 class="reveal" data-i18n="journey.title">رحلتي التقنية</h2>
+        <p class="reveal" data-i18n="journey.subtitle">محطات تطوّر اهتماماتي ومهاراتي حتى الوصول إلى بناء هذا الموقع نفسه.</p>
       </div>
-      <div class="timeline" id="timelineList"></div>
+      <div class="timeline" id="timelineList">
+        <div class="t-line"><span id="timelineProgress"></span></div>
+      </div>
     </div>
   </section>
 
+  <!-- ================= EDUCATION ================= -->
   <section id="education" class="section">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="education.eyebrow">التعليم</p>
-        <h2 data-i18n="education.title">المسار التعليمي</h2>
-        <p data-i18n="education.subtitle">الخلفية الأكاديمية والتعلم المستمر.</p>
-        <p class="cms-note"><i data-lucide="info"></i><span data-i18n="education.cmsNote">قابل للتحديث من لوحة التحكم بالبيانات الدقيقة.</span></p>
+      <div class="section-head">
+        <p class="eyebrow reveal" data-i18n="education.eyebrow">التعليم</p>
+        <h2 class="reveal" data-i18n="education.title">المسار التعليمي</h2>
+        <p class="reveal" data-i18n="education.subtitle">الخلفية الأكاديمية والتعلم المستمر.</p>
+        <p class="cms-note reveal"><i data-lucide="info"></i><span data-i18n="education.cmsNote">قابل للتحديث من لوحة التحكم بالبيانات الدقيقة.</span></p>
       </div>
       <div class="edu-grid" id="educationGrid"></div>
     </div>
   </section>
 
-  <section id="goals" class="section">
+  <!-- ================= GOALS ================= -->
+  <section id="goals" class="section" style="background:color-mix(in srgb,var(--bg-soft) 55%,transparent);border-block:1px solid var(--border)">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="goals.eyebrow">المستقبل</p>
-        <h2 data-i18n="goals.title">أهدافي القادمة</h2>
-        <p data-i18n="goals.subtitle">ما أسعى لتحقيقه على المدى القريب والبعيد.</p>
+      <div class="section-head">
+        <p class="eyebrow reveal" data-i18n="goals.eyebrow">المستقبل</p>
+        <h2 class="reveal" data-i18n="goals.title">أهدافي القادمة</h2>
+        <p class="reveal" data-i18n="goals.subtitle">ما أسعى لتحقيقه على المدى القريب والبعيد.</p>
       </div>
-      <div class="goals-grid">
-        <div class="goal-card glass reveal"><div class="icon-circle"><i data-lucide="target"></i></div><h3 data-i18n="goals.g1t">تعميق الخبرة في الذكاء الاصطناعي</h3><p data-i18n="goals.g1d">التوسع في تعلّم الآلة والتعلم العميق وتطبيقاتهما العملية.</p></div>
-        <div class="goal-card glass reveal"><div class="icon-circle"><i data-lucide="rocket"></i></div><h3 data-i18n="goals.g2t">بناء مشاريع روبوتات حقيقية</h3><p data-i18n="goals.g2d">تصميم روبوتات تحل مشكلات عملية وليس فقط نماذج تجريبية.</p></div>
-        <div class="goal-card glass reveal"><div class="icon-circle"><i data-lucide="graduation-cap"></i></div><h3 data-i18n="goals.g3t">متابعة دراسات أو بحث متقدم</h3><p data-i18n="goals.g3d">السعي لفرص دراسات عليا أو بحث في الذكاء الاصطناعي والروبوتات.</p></div>
-        <div class="goal-card glass reveal"><div class="icon-circle"><i data-lucide="users"></i></div><h3 data-i18n="goals.g4t">المساهمة في المصادر المفتوحة</h3><p data-i18n="goals.g4d">التعاون مع مجتمعات تقنية والمساهمة في مشاريع مفتوحة المصدر.</p></div>
-        <div class="goal-card glass reveal"><div class="icon-circle"><i data-lucide="briefcase"></i></div><h3 data-i18n="goals.g5t">الاستمرار في بناء منتجات فعلية</h3><p data-i18n="goals.g5d">التركيز على التنفيذ الحقيقي بدلًا من الأفكار النظرية فقط.</p></div>
-        <div class="goal-card glass reveal"><div class="icon-circle"><i data-lucide="layers"></i></div><h3 data-i18n="goals.g6t">تعميق أساسيات علوم الحاسوب</h3><p data-i18n="goals.g6d">بناء أساس قوي في الخوارزميات وبنية البيانات والهندسة البرمجية.</p></div>
-      </div>
+      <div class="goals-grid" id="goalsGrid"></div>
     </div>
   </section>
 
+  <!-- ================= CONTACT ================= -->
   <section id="contact" class="section">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="contact.eyebrow">تواصل</p>
-        <h2 data-i18n="contact.title">لنتحدث عن فكرة أو فرصة</h2>
-        <p data-i18n="contact.subtitle">سواء منحة، تدريب، تعاون تقني، أو مجرد سؤال — أرسل رسالتك وسأراها.</p>
+      <div class="section-head">
+        <p class="eyebrow reveal" data-i18n="contact.eyebrow">تواصل</p>
+        <h2 class="reveal" data-i18n="contact.title">لنتحدث عن فكرة أو فرصة</h2>
+        <p class="reveal" data-i18n="contact.subtitle">سواء منحة، تدريب، تعاون تقني، أو مجرد سؤال — أرسل رسالتك وسأراها.</p>
       </div>
+
       <div class="contact-grid">
-        <form class="glass" style="padding:28px;" id="contactForm">
+        <form class="glass form-wrap reveal" id="contactForm" novalidate>
           <div class="form-group">
-            <label data-i18n="contact.name">الاسم الكامل</label>
-            <input type="text" class="form-control" id="cName" data-i18n-ph="contact.namePh" placeholder="اسمك">
+            <label for="cName" data-i18n="contact.name">الاسم الكامل</label>
+            <input type="text" class="form-control" id="cName" data-i18n-ph="contact.namePh" placeholder="اسمك" autocomplete="name">
           </div>
           <div class="form-group">
-            <label data-i18n="contact.email">البريد الإلكتروني</label>
-            <input type="email" class="form-control" id="cEmail" data-i18n-ph="contact.emailPh" placeholder="you@example.com">
+            <label for="cEmail" data-i18n="contact.email">البريد الإلكتروني</label>
+            <input type="email" class="form-control" id="cEmail" data-i18n-ph="contact.emailPh" placeholder="you@example.com" autocomplete="email">
           </div>
           <div class="form-group">
-            <label data-i18n="contact.message">الرسالة</label>
+            <label for="cMessage" data-i18n="contact.message">الرسالة</label>
             <textarea class="form-control" id="cMessage" data-i18n-ph="contact.messagePh" placeholder="اكتب رسالتك هنا..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><span data-i18n="contact.send">إرسال الرسالة</span><i data-lucide="send"></i></button>
+          <button type="submit" class="btn btn-primary magnetic" style="width:100%">
+            <span data-i18n="contact.send">إرسال الرسالة</span><i data-lucide="send"></i>
+          </button>
           <p class="error-text" id="contactError"></p>
-          <div class="success-box" id="contactSuccess"><i data-lucide="check-circle-2" style="width:18px;height:18px;color:var(--accent);"></i><span data-i18n="contact.successMsg">تم استلام رسالتك بنجاح (تُحفظ محليًا وتظهر في لوحة التحكم).</span></div>
+          <div class="success-box" id="contactSuccess">
+            <i data-lucide="check-circle-2"></i>
+            <span data-i18n="contact.successMsg">تم استلام رسالتك بنجاح (تُحفظ محليًا وتظهر في لوحة التحكم).</span>
+          </div>
           <p class="form-note" data-i18n="contact.formNote">* هذا نموذج فعلي: يتم حفظ رسالتك محليًا في المتصفح وتظهر مباشرة داخل لوحة التحكم (Admin Dashboard).</p>
         </form>
-        <div class="contact-info-card glass">
-          <div class="contact-info-row"><div class="icon-circle"><i data-lucide="mail"></i></div><div><h5 data-i18n="contact.emailLbl">البريد الإلكتروني</h5><p id="infoEmail" class="placeholder-text">—</p></div></div>
-          <div class="contact-info-row"><div class="icon-circle"><i data-lucide="phone"></i></div><div><h5 data-i18n="contact.phoneLbl">الهاتف</h5><p id="infoPhone" class="placeholder-text">—</p></div></div>
-          <div class="contact-info-row"><div class="icon-circle"><i data-lucide="map-pin"></i></div><div><h5 data-i18n="contact.locLbl">الموقع</h5><p id="infoLocation" class="placeholder-text">—</p></div></div>
-          <div class="contact-info-row"><div class="icon-circle"><i data-lucide="github"></i></div><div><h5>GitHub</h5><p id="infoGithub" class="placeholder-text">—</p></div></div>
-          <div class="contact-info-row"><div class="icon-circle"><i data-lucide="linkedin"></i></div><div><h5>LinkedIn</h5><p id="infoLinkedin" class="placeholder-text">—</p></div></div>
+
+        <div class="contact-info-card glass reveal">
+          <div class="contact-info-row">
+            <div class="icon-circle"><i data-lucide="mail"></i></div>
+            <div><h5 data-i18n="contact.emailLbl">البريد الإلكتروني</h5><p id="infoEmail">—</p></div>
+          </div>
+          <div class="contact-info-row">
+            <div class="icon-circle"><i data-lucide="phone"></i></div>
+            <div><h5 data-i18n="contact.phoneLbl">الهاتف</h5><p id="infoPhone">—</p></div>
+          </div>
+          <div class="contact-info-row">
+            <div class="icon-circle"><i data-lucide="map-pin"></i></div>
+            <div><h5 data-i18n="contact.locLbl">الموقع</h5><p id="infoLocation">—</p></div>
+          </div>
+          <div class="contact-info-row">
+            <div class="icon-circle"><i data-lucide="github"></i></div>
+            <div><h5>GitHub</h5><p id="infoGithub">—</p></div>
+          </div>
+          <div class="contact-info-row">
+            <div class="icon-circle"><i data-lucide="linkedin"></i></div>
+            <div><h5>LinkedIn</h5><p id="infoLinkedin">—</p></div>
+          </div>
           <p class="cms-note"><i data-lucide="info"></i><span data-i18n="contact.cmsNote">تُحدَّث بيانات التواصل من لوحة التحكم مباشرة.</span></p>
         </div>
       </div>
@@ -622,13 +789,17 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
 
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer id="siteFooter">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-col" style="max-width:320px;">
-        <div class="brand" style="margin-bottom:14px;"><span class="brand-mark">MM</span><span data-i18n="brand.name">مروان مختار</span></div>
-        <p style="color:var(--text-dim);font-size:.88rem;" data-i18n="footer.tagline">طالب علوم حاسوب، شغوف بالذكاء الاصطناعي والروبوتات وتطوير الويب — يبني منتجات حقيقية.</p>
-        <div class="footer-socials" style="margin-top:18px;" id="footerSocials"></div>
+      <div class="footer-col">
+        <div class="brand" style="margin-bottom:15px">
+          <span class="brand-mark">MM</span>
+          <span class="brand-text"><span data-i18n="brand.name">مروان مختار</span><small data-i18n="brand.role">Computer Science</small></span>
+        </div>
+        <p class="footer-tag" data-i18n="footer.tagline">طالب علوم حاسوب، شغوف بالذكاء الاصطناعي والروبوتات وتطوير الويب — يبني منتجات حقيقية.</p>
+        <div class="footer-socials" id="footerSocials"></div>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer.navTitle">تصفح</h4>
@@ -644,29 +815,40 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
         <ul>
           <li><a href="#education" data-i18n="nav.education">التعليم</a></li>
           <li><a href="#goals" data-i18n="nav.goals">الأهداف</a></li>
+          <li><a href="#journey" data-i18n="nav.journey">المسار</a></li>
           <li><button id="footerAdminBtn" data-i18n="nav.admin">لوحة التحكم</button></li>
         </ul>
       </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.newsTitle">ابقَ على تواصل</h4>
+        <p style="color:var(--text-dim);font-size:.87rem;line-height:1.8" data-i18n="footer.newsDesc">اترك بريدك ليصلك إشعار عند إضافة مشاريع أو تحديثات جديدة.</p>
+        <form class="newsletter" id="newsletterForm">
+          <input type="email" class="form-control" id="newsletterEmail" data-i18n-ph="contact.emailPh" placeholder="you@example.com">
+          <button class="btn btn-primary btn-sm" type="submit"><i data-lucide="arrow-left"></i></button>
+        </form>
+      </div>
     </div>
     <div class="footer-bottom">
-      <span data-i18n="footer.copy">© <span id="yearNow"></span> مروان مختار عوض علي — جميع الحقوق محفوظة.</span>
+      <span data-i18n="footer.copyPrefix">© <span id="yearNow"></span> مروان مختار عوض علي — جميع الحقوق محفوظة.</span>
       <span data-i18n="footer.built">صُمم وبُني باستخدام HTML, CSS, JavaScript.</span>
     </div>
   </div>
 </footer>
 
-<button id="scrollTop" aria-label="scroll top"><i data-lucide="chevron-up"></i></button>
+<button id="scrollTop" aria-label="scroll to top"><i data-lucide="chevron-up"></i></button>
 <div id="toast"></div>
 
-<!-- ADMIN -->
+<!-- ================= ADMIN ================= -->
 <div id="adminView" hidden>
   <div id="adminLoginScreen" class="admin-login">
     <div class="login-card glass">
-      <i data-lucide="lock"></i>
+      <div class="icon-circle"><i data-lucide="lock"></i></div>
       <h2 data-i18n="admin.loginTitle">لوحة تحكم المحتوى</h2>
       <p data-i18n="admin.loginHint">هذه لوحة تحكم محلية للتجربة. كلمة المرور الافتراضية: marwan2024</p>
       <input type="password" class="form-control" id="adminPassInput" data-i18n-ph="admin.passPlaceholder" placeholder="كلمة المرور">
-      <button class="btn btn-primary" id="adminLoginBtn" style="width:100%;justify-content:center;"><span data-i18n="admin.loginBtn">دخول</span><i data-lucide="arrow-right"></i></button>
+      <button class="btn btn-primary" id="adminLoginBtn" style="width:100%">
+        <span data-i18n="admin.loginBtn">دخول</span><i data-lucide="arrow-right"></i>
+      </button>
       <p class="error-text" id="adminLoginError"></p>
       <a href="#" id="adminBackFromLogin" class="back-link" data-i18n="admin.backToSite">الرجوع إلى الموقع</a>
     </div>
@@ -676,7 +858,7 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
     <header class="admin-header">
       <div class="admin-header-left"><i data-lucide="layout-dashboard"></i><span data-i18n="admin.title">لوحة التحكم بالمحتوى</span></div>
       <div class="admin-header-right">
-        <button class="btn btn-ghost btn-sm" id="adminExitBtn"><i data-lucide="arrow-right"></i><span data-i18n="admin.backToSite">الموقع</span></button>
+        <button class="btn btn-ghost btn-sm" id="adminExitBtn"><i data-lucide="globe"></i><span data-i18n="admin.backToSite">الموقع</span></button>
         <button class="btn btn-ghost btn-sm" id="adminLogoutBtn"><i data-lucide="log-out"></i><span data-i18n="admin.logout">خروج</span></button>
       </div>
     </header>
@@ -690,9 +872,9 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
 
     <section class="admin-panel" data-panel="overview">
       <div class="stats-row" id="statsRow"></div>
-      <div class="admin-card" style="margin-top:20px;">
+      <div class="admin-card" style="margin-top:20px">
         <h3><i data-lucide="info"></i><span data-i18n="admin.aboutTitle">عن اللوحة</span></h3>
-        <p style="font-size:.88rem;color:var(--text-dim);" data-i18n="admin.aboutDesc">هذه لوحة تحكم فعلية تعمل بالكامل داخل المتصفح باستخدام localStorage. كل تعديل يظهر فورًا في الموقع العام دون إعادة تحميل الصفحة.</p>
+        <p style="font-size:.89rem;color:var(--text-dim);line-height:1.9" data-i18n="admin.aboutDesc">هذه لوحة تحكم فعلية تعمل بالكامل داخل المتصفح باستخدام localStorage. كل تعديل يظهر فورًا في الموقع العام دون إعادة تحميل الصفحة.</p>
       </div>
     </section>
 
@@ -704,27 +886,22 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
           <div class="form-group"><label data-i18n="admin.titleAr">العنوان (AR)</label><input class="form-control" id="pfTitleAr"></div>
         </div>
         <div class="form-row2">
-          <div class="form-group"><label data-i18n="admin.descEn">الوصف (EN)</label><textarea class="form-control" id="pfDescEn" style="min-height:80px;"></textarea></div>
-          <div class="form-group"><label data-i18n="admin.descAr">الوصف (AR)</label><textarea class="form-control" id="pfDescAr" style="min-height:80px;"></textarea></div>
+          <div class="form-group"><label data-i18n="admin.descEn">الوصف (EN)</label><textarea class="form-control" id="pfDescEn" style="min-height:86px"></textarea></div>
+          <div class="form-group"><label data-i18n="admin.descAr">الوصف (AR)</label><textarea class="form-control" id="pfDescAr" style="min-height:86px"></textarea></div>
         </div>
         <div class="form-row2">
           <div class="form-group">
             <label data-i18n="admin.category">التصنيف</label>
             <select class="form-control" id="pfCategory">
-              <option value="ai">AI</option>
-              <option value="robotics">Robotics</option>
-              <option value="web">Web</option>
-              <option value="cs">CS</option>
+              <option value="ai">AI</option><option value="robotics">Robotics</option>
+              <option value="web">Web</option><option value="cs">CS</option>
             </select>
           </div>
-          <div class="form-group"><label data-i18n="admin.icon">الأيقونة</label>
+          <div class="form-group">
+            <label data-i18n="admin.icon">الأيقونة</label>
             <select class="form-control" id="pfIcon">
-              <option value="bot">bot</option>
-              <option value="cpu">cpu</option>
-              <option value="globe">globe</option>
-              <option value="database">database</option>
-              <option value="code-2">code-2</option>
-              <option value="layers">layers</option>
+              <option value="bot">bot</option><option value="cpu">cpu</option><option value="globe">globe</option>
+              <option value="database">database</option><option value="code-2">code-2</option><option value="layers">layers</option>
             </select>
           </div>
         </div>
@@ -732,6 +909,7 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
           <div class="form-group"><label data-i18n="admin.tags">الوسوم (مفصولة بفاصلة)</label><input class="form-control" id="pfTags" placeholder="Python, TensorFlow"></div>
           <div class="form-group"><label data-i18n="admin.link">الرابط</label><input class="form-control" id="pfLink" placeholder="https://..."></div>
         </div>
+        <div class="form-group"><label data-i18n="admin.image">رابط الصورة (اختياري)</label><input class="form-control" id="pfImage" placeholder="https://images.unsplash.com/..."></div>
         <input type="hidden" id="pfEditId">
         <div class="admin-footer-bar">
           <button class="btn btn-ghost btn-sm" id="pfResetBtn" type="button"><span data-i18n="admin.clearForm">تفريغ النموذج</span></button>
@@ -745,10 +923,12 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
       <div class="admin-card">
         <h3><i data-lucide="pencil"></i><span data-i18n="admin.bioTitle">نص "نبذة عني"</span></h3>
         <div class="form-row2">
-          <div class="form-group"><label>EN</label><textarea class="form-control" id="bioEnInput" style="min-height:120px;"></textarea></div>
-          <div class="form-group"><label>AR</label><textarea class="form-control" id="bioArInput" style="min-height:120px;"></textarea></div>
+          <div class="form-group"><label>EN</label><textarea class="form-control" id="bioEnInput" style="min-height:130px"></textarea></div>
+          <div class="form-group"><label>AR</label><textarea class="form-control" id="bioArInput" style="min-height:130px"></textarea></div>
         </div>
-        <div class="admin-footer-bar"><button class="btn btn-primary btn-sm" id="bioSaveBtn"><i data-lucide="save"></i><span data-i18n="admin.saveChanges">حفظ التغييرات</span></button></div>
+        <div class="admin-footer-bar">
+          <button class="btn btn-primary btn-sm" id="bioSaveBtn"><i data-lucide="save"></i><span data-i18n="admin.saveChanges">حفظ التغييرات</span></button>
+        </div>
       </div>
 
       <div class="admin-card">
@@ -764,7 +944,9 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
         <div class="form-row2">
           <div class="form-group"><label>LinkedIn URL</label><input class="form-control" id="socLinkedin"></div>
         </div>
-        <div class="admin-footer-bar"><button class="btn btn-primary btn-sm" id="socSaveBtn"><i data-lucide="save"></i><span data-i18n="admin.saveChanges">حفظ التغييرات</span></button></div>
+        <div class="admin-footer-bar">
+          <button class="btn btn-primary btn-sm" id="socSaveBtn"><i data-lucide="save"></i><span data-i18n="admin.saveChanges">حفظ التغييرات</span></button>
+        </div>
       </div>
 
       <div class="admin-card">
@@ -787,7 +969,7 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
 
       <div class="admin-card">
         <h3><i data-lucide="rotate-ccw"></i><span data-i18n="admin.resetTitle">إعادة ضبط</span></h3>
-        <p style="font-size:.85rem;color:var(--text-dim);margin-bottom:14px;" data-i18n="admin.resetDesc">إعادة كل المحتوى إلى القيم الافتراضية (سيتم حذف كل التعديلات المحلية).</p>
+        <p style="font-size:.87rem;color:var(--text-dim);margin-bottom:15px" data-i18n="admin.resetDesc">إعادة كل المحتوى إلى القيم الافتراضية (سيتم حذف كل التعديلات المحلية).</p>
         <button class="btn btn-ghost btn-sm" id="resetAllBtn"><i data-lucide="rotate-ccw"></i><span data-i18n="admin.resetBtn">إعادة الضبط</span></button>
       </div>
     </section>
@@ -795,7 +977,9 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
     <section class="admin-panel" data-panel="messages" hidden>
       <div class="admin-card">
         <h3><i data-lucide="inbox"></i><span data-i18n="admin.msgTitle">الرسائل المستلمة</span></h3>
-        <div class="admin-footer-bar" style="margin-bottom:14px;"><button class="btn btn-ghost btn-sm" id="clearMsgsBtn"><i data-lucide="trash-2"></i><span data-i18n="admin.clearAll">حذف الكل</span></button></div>
+        <div class="admin-footer-bar" style="margin-bottom:16px">
+          <button class="btn btn-ghost btn-sm" id="clearMsgsBtn"><i data-lucide="trash-2"></i><span data-i18n="admin.clearAll">حذف الكل</span></button>
+        </div>
         <div id="messagesList"></div>
       </div>
     </section>
@@ -806,30 +990,34 @@ footer{border-top:1px solid var(--border-soft);padding:60px 0 28px;background:va
 /* ===================== TRANSLATIONS ===================== */
 const translations = {
   ar: {
-    "brand.name":"مروان مختار",
+    "brand.name":"مروان مختار","brand.role":"علوم الحاسوب",
     "nav.home":"الرئيسية","nav.about":"نبذة","nav.projects":"المشاريع","nav.skills":"المهارات",
     "nav.journey":"المسار","nav.education":"التعليم","nav.goals":"الأهداف","nav.contact":"تواصل","nav.admin":"لوحة التحكم",
     "hero.eyebrow":"طالب علوم حاسوب • مطوّر منتجات تقنية",
-    "hero.greeting":"أهلًا، أنا",
-    "hero.name":"مروان مختار عوض علي",
+    "hero.greeting":"أهلًا، أنا","hero.name":"مروان مختار عوض علي",
     "hero.subtitle":"أبني أنظمة ذكاء اصطناعي، روبوتات، وتطبيقات ويب — بشغف حقيقي بعلوم الحاسوب وتحويل الأفكار إلى منتجات تعمل فعليًا.",
     "hero.ctaProjects":"استعرض المشاريع","hero.ctaContact":"تواصل معي",
+    "hero.availability":"متاح للتدريب والتعاون التقني","hero.location":"العمل عن بُعد ممكن",
+    "hero.card1lbl":"التركيز","hero.card1val":"الذكاء الاصطناعي وتعلّم الآلة",
+    "hero.card2lbl":"البناء","hero.card2val":"الروبوتات وأنظمة الويب",
     "profile.field_lbl":"مجال الدراسة","profile.field_val":"علوم الحاسوب",
     "profile.focus_lbl":"مجالات التركيز","profile.focus_val":"ذكاء اصطناعي • روبوتات • ويب",
+    "profile.projects_lbl":"مشاريع موثّقة",
     "profile.status_lbl":"الحالة الحالية","profile.status_val":"طالب وباني منتجات",
     "profile.open_lbl":"متاح لـ","profile.open_val":"تدريب وتعاون تقني",
     "about.eyebrow":"نبذة عني","about.title":"بُناء رقمي، شغوف بالتفاصيل التقنية",
+    "about.mediaCaption":"من الدارة إلى النظام — تعلّم بالممارسة والبناء المستمر.",
     "about.badge1":"ذكاء اصطناعي","about.badge2":"روبوتات","about.badge3":"تطوير ويب","about.badge4":"علوم حاسوب",
     "about.r1t":"النهج","about.r1d":"تعلّم بالممارسة، وبناء منتجات حقيقية بدلًا من الأفكار فقط.",
     "about.r2t":"طريقة التفكير","about.r2d":"حل المشكلات بعقلية هندسية، من الفكرة إلى نظام يعمل فعليًا.",
     "about.r3t":"الطموح","about.r3d":"المساهمة في مجالات الذكاء الاصطناعي والروبوتات الذكية مستقبلًا.",
+    "about.r4t":"التعلّم المستمر","about.r4d":"أساسيات قوية في علوم الحاسوب، مع تحديث مستمر للأدوات والتقنيات.",
     "projects.eyebrow":"أعمالي","projects.title":"مشاريع مختارة",
     "projects.subtitle":"مجموعة من المشاريع التقنية التي تعكس اهتمامي بالذكاء الاصطناعي والروبوتات وتطوير الويب.",
     "projects.cmsNote":"يمكن تحديث هذا المحتوى فعليًا من لوحة التحكم (Admin Dashboard).",
     "projects.searchPh":"ابحث في المشاريع...",
     "projects.f_all":"الكل","projects.f_ai":"ذكاء اصطناعي","projects.f_robotics":"روبوتات","projects.f_web":"ويب","projects.f_cs":"علوم حاسوب",
-    "projects.noResults":"لا توجد مشاريع مطابقة للبحث.",
-    "projects.viewLink":"عرض المشروع","projects.noLink":"لا يوجد رابط بعد",
+    "projects.noResults":"لا توجد مشاريع مطابقة للبحث.","projects.viewLink":"عرض المشروع","projects.noLink":"لا يوجد رابط بعد",
     "skills.eyebrow":"القدرات","skills.title":"المهارات التقنية","skills.subtitle":"تقييم ذاتي لمستوى الإلمام الحالي بالأدوات والتقنيات المختلفة.",
     "skills.c1":"لغات البرمجة","skills.c2":"الذكاء الاصطناعي","skills.c3":"الروبوتات والأنظمة المدمجة","skills.c4":"تطوير الويب",
     "skills.lvl_adv":"متقدم","skills.lvl_int":"متوسط","skills.lvl_begint":"مبتدئ-متوسط","skills.lvl_beg":"مبتدئ",
@@ -858,8 +1046,10 @@ const translations = {
     "contact.notSet":"لم تتم إضافته بعد",
     "footer.tagline":"طالب علوم حاسوب، شغوف بالذكاء الاصطناعي والروبوتات وتطوير الويب — يبني منتجات حقيقية.",
     "footer.navTitle":"تصفح","footer.moreTitle":"أخرى",
-    "footer.copy":"© <span id=\\"yearNow\\"></span> مروان مختار عوض علي — جميع الحقوق محفوظة.",
+    "footer.newsTitle":"ابقَ على تواصل","footer.newsDesc":"اترك بريدك ليصلك إشعار عند إضافة مشاريع أو تحديثات جديدة.",
+    "footer.copyPrefix":"© 2025 مروان مختار عوض علي — جميع الحقوق محفوظة.",
     "footer.built":"صُمم وبُني باستخدام HTML, CSS, JavaScript.",
+    "footer.newsOk":"تم تسجيل بريدك بنجاح.",
     "admin.loginTitle":"لوحة تحكم المحتوى","admin.loginHint":"هذه لوحة تحكم محلية للتجربة. كلمة المرور الافتراضية: marwan2024",
     "admin.passPlaceholder":"كلمة المرور","admin.loginBtn":"دخول","admin.backToSite":"الرجوع إلى الموقع",
     "admin.title":"لوحة التحكم بالمحتوى","admin.logout":"خروج",
@@ -867,40 +1057,47 @@ const translations = {
     "admin.aboutTitle":"عن اللوحة","admin.aboutDesc":"هذه لوحة تحكم فعلية تعمل بالكامل داخل المتصفح باستخدام localStorage. كل تعديل يظهر فورًا في الموقع العام دون إعادة تحميل الصفحة.",
     "admin.addProject":"إضافة مشروع جديد","admin.titleEn":"العنوان (EN)","admin.titleAr":"العنوان (AR)",
     "admin.descEn":"الوصف (EN)","admin.descAr":"الوصف (AR)","admin.category":"التصنيف","admin.icon":"الأيقونة",
-    "admin.tags":"الوسوم (مفصولة بفاصلة)","admin.link":"الرابط","admin.clearForm":"تفريغ النموذج","admin.saveProject":"حفظ المشروع",
-    "admin.bioTitle":"نص \\"نبذة عني\\"","admin.saveChanges":"حفظ التغييرات","admin.socialTitle":"بيانات التواصل والروابط",
+    "admin.tags":"الوسوم (مفصولة بفاصلة)","admin.link":"الرابط","admin.image":"رابط الصورة (اختياري)",
+    "admin.clearForm":"تفريغ النموذج","admin.saveProject":"حفظ المشروع",
+    "admin.bioTitle":"نص \"نبذة عني\"","admin.saveChanges":"حفظ التغييرات","admin.socialTitle":"بيانات التواصل والروابط",
     "admin.location":"الموقع","admin.eduTitle":"التعليم","admin.addRow":"إضافة صف","admin.journeyTitle":"المسار الزمني",
     "admin.resetTitle":"إعادة ضبط","admin.resetDesc":"إعادة كل المحتوى إلى القيم الافتراضية (سيتم حذف كل التعديلات المحلية).","admin.resetBtn":"إعادة الضبط",
     "admin.msgTitle":"الرسائل المستلمة","admin.clearAll":"حذف الكل","admin.noMsgs":"لا توجد رسائل حتى الآن.",
     "admin.wrongPass":"كلمة المرور غير صحيحة.","admin.deleteConfirm":"هل أنت متأكد من الحذف؟",
     "admin.edit":"تعديل","admin.delete":"حذف","admin.saved":"تم الحفظ بنجاح.","admin.reset_done":"تمت إعادة الضبط بنجاح.",
-    "toast.langChanged":"تم تغيير اللغة","toast.themeChanged":"تم تغيير المظهر"
+    "toast.langChanged":"تم تغيير اللغة","toast.themeChanged":"تم تغيير المظهر",
+    "stats.projects":"إجمالي المشاريع","stats.education":"سجلات التعليم","stats.journey":"محطات المسار","stats.messages":"رسائل مستلمة",
+    "ticker.items":["ذكاء اصطناعي","تعلم الآلة","الروبوتات","أنظمة مدمجة","تطوير الويب","خوارزميات","رؤية حاسوبية","بنية البيانات","إنترنت الأشياء"]
   },
   en: {
-    "brand.name":"Marwan Mokhtar",
+    "brand.name":"Marwan Mokhtar","brand.role":"Computer Science",
     "nav.home":"Home","nav.about":"About","nav.projects":"Projects","nav.skills":"Skills",
     "nav.journey":"Journey","nav.education":"Education","nav.goals":"Goals","nav.contact":"Contact","nav.admin":"Admin",
     "hero.eyebrow":"Computer Science Student • Tech Product Builder",
-    "hero.greeting":"Hi, I'm",
-    "hero.name":"Marwan Mokhtar Awad Ali",
+    "hero.greeting":"Hi, I'm","hero.name":"Marwan Mokhtar Awad Ali",
     "hero.subtitle":"I build AI systems, robots, and web applications — driven by a real passion for computer science and turning ideas into working products.",
     "hero.ctaProjects":"View Projects","hero.ctaContact":"Contact Me",
+    "hero.availability":"Open to internships & collaboration","hero.location":"Remote friendly",
+    "hero.card1lbl":"Focus","hero.card1val":"AI & Machine Learning",
+    "hero.card2lbl":"Build","hero.card2val":"Robotics & Web Systems",
     "profile.field_lbl":"Field of Study","profile.field_val":"Computer Science",
     "profile.focus_lbl":"Focus Areas","profile.focus_val":"AI • Robotics • Web",
+    "profile.projects_lbl":"Documented Projects",
     "profile.status_lbl":"Current Status","profile.status_val":"Student & Product Builder",
     "profile.open_lbl":"Open To","profile.open_val":"Internships & Collaboration",
     "about.eyebrow":"About Me","about.title":"A digital builder, obsessed with the technical details",
+    "about.mediaCaption":"From circuitry to systems — learning by doing, building continuously.",
     "about.badge1":"Artificial Intelligence","about.badge2":"Robotics","about.badge3":"Web Development","about.badge4":"Computer Science",
     "about.r1t":"Approach","about.r1d":"Learning by doing, building real products instead of just ideas.",
     "about.r2t":"Mindset","about.r2d":"Solving problems with an engineering mindset — from idea to working system.",
     "about.r3t":"Ambition","about.r3d":"Contributing meaningfully to AI and intelligent robotics in the future.",
+    "about.r4t":"Continuous Learning","about.r4d":"Strong CS fundamentals, with constant updating of tools and techniques.",
     "projects.eyebrow":"My Work","projects.title":"Selected Projects",
     "projects.subtitle":"A set of technical projects reflecting my interest in AI, robotics and web development.",
     "projects.cmsNote":"This content is fully editable from the Admin Dashboard.",
     "projects.searchPh":"Search projects...",
     "projects.f_all":"All","projects.f_ai":"AI","projects.f_robotics":"Robotics","projects.f_web":"Web","projects.f_cs":"CS",
-    "projects.noResults":"No matching projects found.",
-    "projects.viewLink":"View Project","projects.noLink":"Link not added yet",
+    "projects.noResults":"No matching projects found.","projects.viewLink":"View Project","projects.noLink":"Link not added yet",
     "skills.eyebrow":"Capabilities","skills.title":"Technical Skills","skills.subtitle":"A self-assessment of current familiarity with tools and technologies.",
     "skills.c1":"Programming Languages","skills.c2":"Artificial Intelligence","skills.c3":"Robotics & Embedded Systems","skills.c4":"Web Development",
     "skills.lvl_adv":"Advanced","skills.lvl_int":"Intermediate","skills.lvl_begint":"Beginner-Intermediate","skills.lvl_beg":"Beginner",
@@ -929,8 +1126,10 @@ const translations = {
     "contact.notSet":"Not added yet",
     "footer.tagline":"Computer Science student passionate about AI, Robotics and Web Development — building real products.",
     "footer.navTitle":"Navigate","footer.moreTitle":"More",
-    "footer.copy":"© <span id=\\"yearNow\\"></span> Marwan Mokhtar Awad Ali — All rights reserved.",
+    "footer.newsTitle":"Stay in touch","footer.newsDesc":"Leave your email to get notified when new projects or updates go live.",
+    "footer.copyPrefix":"© 2025 Marwan Mokhtar Awad Ali — All rights reserved.",
     "footer.built":"Designed & built with HTML, CSS, JavaScript.",
+    "footer.newsOk":"Your email has been registered.",
     "admin.loginTitle":"Content Admin Dashboard","admin.loginHint":"This is a local demo admin area. Default password: marwan2024",
     "admin.passPlaceholder":"Password","admin.loginBtn":"Login","admin.backToSite":"Back to site",
     "admin.title":"Content Admin Dashboard","admin.logout":"Logout",
@@ -938,14 +1137,17 @@ const translations = {
     "admin.aboutTitle":"About this panel","admin.aboutDesc":"This is a real, working dashboard running entirely in the browser using localStorage. Every change appears instantly on the public site, no reload needed.",
     "admin.addProject":"Add New Project","admin.titleEn":"Title (EN)","admin.titleAr":"Title (AR)",
     "admin.descEn":"Description (EN)","admin.descAr":"Description (AR)","admin.category":"Category","admin.icon":"Icon",
-    "admin.tags":"Tags (comma separated)","admin.link":"Link","admin.clearForm":"Clear Form","admin.saveProject":"Save Project",
-    "admin.bioTitle":"\\"About Me\\" Text","admin.saveChanges":"Save Changes","admin.socialTitle":"Contact Info & Links",
+    "admin.tags":"Tags (comma separated)","admin.link":"Link","admin.image":"Image URL (optional)",
+    "admin.clearForm":"Clear Form","admin.saveProject":"Save Project",
+    "admin.bioTitle":"\"About Me\" Text","admin.saveChanges":"Save Changes","admin.socialTitle":"Contact Info & Links",
     "admin.location":"Location","admin.eduTitle":"Education","admin.addRow":"Add Row","admin.journeyTitle":"Timeline",
     "admin.resetTitle":"Reset Data","admin.resetDesc":"Restore all content to default values (local changes will be lost).","admin.resetBtn":"Reset Now",
     "admin.msgTitle":"Received Messages","admin.clearAll":"Clear All","admin.noMsgs":"No messages yet.",
     "admin.wrongPass":"Incorrect password.","admin.deleteConfirm":"Are you sure you want to delete this?",
     "admin.edit":"Edit","admin.delete":"Delete","admin.saved":"Saved successfully.","admin.reset_done":"Reset successful.",
-    "toast.langChanged":"Language changed","toast.themeChanged":"Theme changed"
+    "toast.langChanged":"Language changed","toast.themeChanged":"Theme changed",
+    "stats.projects":"Total Projects","stats.education":"Education Entries","stats.journey":"Journey Milestones","stats.messages":"Messages Received",
+    "ticker.items":["Artificial Intelligence","Machine Learning","Robotics","Embedded Systems","Web Development","Algorithms","Computer Vision","Data Structures","IoT"]
   }
 };
 
@@ -960,27 +1162,33 @@ const DEFAULT_DATA = {
     {id:1, titleEn:"AI-Powered Chat Assistant", titleAr:"مساعد محادثة مدعوم بالذكاء الاصطناعي",
      descEn:"A conversational assistant built with Python and NLP techniques to answer domain-specific questions, exploring practical applications of language models.",
      descAr:"مساعد محادثة مبني بلغة بايثون وتقنيات معالجة اللغة الطبيعية للإجابة على أسئلة متخصصة، كتطبيق عملي لنماذج اللغة.",
-     category:"ai", tags:["Python","NLP","Machine Learning"], link:"", icon:"bot"},
+     category:"ai", tags:["Python","NLP","Machine Learning"], link:"", icon:"bot",
+     image:"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=900&q=70"},
     {id:2, titleEn:"Line-Following & Obstacle-Avoiding Robot", titleAr:"روبوت متتبع للخط ومتجنب للعوائق",
      descEn:"An autonomous robot built with Arduino and ultrasonic/IR sensors that follows a path and reacts to obstacles in real time.",
      descAr:"روبوت ذاتي القيادة مبني بالاردوينو وحساسات الموجات فوق الصوتية والأشعة تحت الحمراء، يتتبع مسارًا ويتفاعل مع العوائق لحظيًا.",
-     category:"robotics", tags:["Arduino","C++","Sensors"], link:"", icon:"cpu"},
+     category:"robotics", tags:["Arduino","C++","Sensors"], link:"", icon:"cpu",
+     image:"https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=70"},
     {id:3, titleEn:"Personal Portfolio & Mini CMS", titleAr:"موقع شخصي مع نظام إدارة محتوى مصغّر",
      descEn:"A responsive personal website with a lightweight admin dashboard for managing projects and content without touching the code.",
      descAr:"موقع شخصي متجاوب مع لوحة تحكم خفيفة لإدارة المشاريع والمحتوى دون الحاجة لتعديل الكود مباشرة.",
-     category:"web", tags:["HTML","CSS","JavaScript"], link:"", icon:"globe"},
+     category:"web", tags:["HTML","CSS","JavaScript"], link:"", icon:"globe",
+     image:"https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=70"},
     {id:4, titleEn:"Image Classification Model", titleAr:"نموذج تصنيف صور",
      descEn:"A computer vision model trained to classify images into categories, exploring convolutional neural networks and data preprocessing pipelines.",
      descAr:"نموذج رؤية حاسوبية مدرَّب لتصنيف الصور إلى فئات، كتطبيق عملي للشبكات العصبية التلافيفية ومعالجة البيانات.",
-     category:"ai", tags:["Python","TensorFlow","CNN"], link:"", icon:"database"},
+     category:"ai", tags:["Python","TensorFlow","CNN"], link:"", icon:"database",
+     image:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=70"},
     {id:5, titleEn:"Student Task Manager Web App", titleAr:"تطبيق ويب لإدارة المهام الطلابية",
      descEn:"A full-stack task management application with authentication and a clean dashboard, built to practice real-world web architecture.",
      descAr:"تطبيق ويب متكامل لإدارة المهام مع نظام تسجيل دخول ولوحة تحكم بسيطة، بُني لممارسة بناء تطبيقات ويب حقيقية.",
-     category:"web", tags:["JavaScript","Node.js","Database"], link:"", icon:"code-2"},
+     category:"web", tags:["JavaScript","Node.js","Database"], link:"", icon:"code-2",
+     image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=70"},
     {id:6, titleEn:"Algorithm Visualizer", titleAr:"أداة تصور الخوارزميات",
      descEn:"An interactive tool that visualizes sorting and searching algorithms step-by-step, making core CS concepts easier to understand.",
      descAr:"أداة تفاعلية تعرض خوارزميات الترتيب والبحث خطوة بخطوة، لتسهيل فهم المفاهيم الأساسية في علوم الحاسوب.",
-     category:"cs", tags:["JavaScript","Data Structures","Algorithms"], link:"", icon:"layers"}
+     category:"cs", tags:["JavaScript","Data Structures","Algorithms"], link:"", icon:"layers",
+     image:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=900&q=70"}
   ],
   education: [
     {id:1, degreeEn:"Computer Science (B.Sc.)", degreeAr:"بكالوريوس علوم الحاسوب",
@@ -1006,8 +1214,43 @@ const DEFAULT_DATA = {
     {id:5, dateEn:"Now", dateAr:"الآن", titleEn:"Building a Digital Portfolio", titleAr:"بناء هوية رقمية متكاملة",
      descEn:"Bringing together AI, robotics, and web skills into real, functional projects — including this website.",
      descAr:"جمع مهارات الذكاء الاصطناعي والروبوتات والويب في مشاريع حقيقية وفعلية — بما في ذلك هذا الموقع نفسه."}
+  ],
+  goals: [
+    {id:1, icon:"target", key:"g1"},
+    {id:2, icon:"rocket", key:"g2"},
+    {id:3, icon:"graduation-cap", key:"g3"},
+    {id:4, icon:"git-branch", key:"g4"},
+    {id:5, icon:"briefcase", key:"g5"},
+    {id:6, icon:"layers", key:"g6"}
   ]
 };
+
+const SKILLS = [
+  {icon:"code-2", titleKey:"skills.c1", items:[
+    {name:"Python", pct:90, lvl:"skills.lvl_adv"},
+    {name:"JavaScript", pct:72, lvl:"skills.lvl_int"},
+    {name:"C / C++", pct:70, lvl:"skills.lvl_int"},
+    {name:"Java", pct:62, lvl:"skills.lvl_int"}
+  ]},
+  {icon:"bot", titleKey:"skills.c2", items:[
+    {name:"skills.ml", pct:68, lvl:"skills.lvl_int"},
+    {name:"TensorFlow / scikit-learn", pct:60, lvl:"skills.lvl_int"},
+    {name:"skills.cv", pct:50, lvl:"skills.lvl_begint"},
+    {name:"skills.da", pct:65, lvl:"skills.lvl_int"}
+  ]},
+  {icon:"cpu", titleKey:"skills.c3", items:[
+    {name:"Arduino", pct:68, lvl:"skills.lvl_int"},
+    {name:"skills.sensors", pct:62, lvl:"skills.lvl_int"},
+    {name:"Raspberry Pi", pct:42, lvl:"skills.lvl_beg"},
+    {name:"skills.control", pct:52, lvl:"skills.lvl_begint"}
+  ]},
+  {icon:"globe", titleKey:"skills.c4", items:[
+    {name:"HTML / CSS", pct:88, lvl:"skills.lvl_adv"},
+    {name:"JavaScript / DOM", pct:74, lvl:"skills.lvl_int"},
+    {name:"React (basics)", pct:52, lvl:"skills.lvl_begint"},
+    {name:"Node.js (basics)", pct:50, lvl:"skills.lvl_begint"}
+  ]}
+];
 
 /* ===================== STATE ===================== */
 let lang = localStorage.getItem('mm_lang') || 'ar';
@@ -1015,10 +1258,7 @@ let theme = localStorage.getItem('mm_theme') || 'dark';
 const ADMIN_PASS = "marwan2024";
 
 function loadData(){
-  try{
-    const raw = localStorage.getItem('mm_cms_data');
-    if(raw) return JSON.parse(raw);
-  }catch(e){}
+  try{ const raw = localStorage.getItem('mm_cms_data'); if(raw) return JSON.parse(raw); }catch(e){}
   return JSON.parse(JSON.stringify(DEFAULT_DATA));
 }
 function saveData(data){
@@ -1026,34 +1266,35 @@ function saveData(data){
   localStorage.setItem('mm_last_updated', new Date().toISOString());
 }
 let DATA = loadData();
-
-function loadMessages(){
-  try{ return JSON.parse(localStorage.getItem('mm_messages')||'[]'); }catch(e){ return []; }
-}
+function loadMessages(){ try{ return JSON.parse(localStorage.getItem('mm_messages')||'[]'); }catch(e){ return []; } }
 function saveMessages(arr){ localStorage.setItem('mm_messages', JSON.stringify(arr)); }
 
-/* ===================== ICONS ===================== */
-function refreshIcons(){ if(window.lucide) lucide.createIcons(); }
-
-/* ===================== TOAST ===================== */
+/* ===================== HELPERS ===================== */
+function refreshIcons(){ if(window.lucide){ try{ lucide.createIcons(); }catch(e){} } }
+function t(key){ return (translations[lang] && translations[lang][key] !== undefined) ? translations[lang][key] : key; }
+function escapeHtml(str){
+  if(!str) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
 function showToast(msg){
   const box = document.getElementById('toast');
+  if(!box) return;
   const item = document.createElement('div');
   item.className = 'toast-item';
-  item.innerHTML = '<i data-lucide="check-circle-2"></i><span>'+msg+'</span>';
+  item.innerHTML = '<i data-lucide="check-circle-2"></i><span>'+escapeHtml(msg)+'</span>';
   box.appendChild(item);
   refreshIcons();
-  setTimeout(()=>{ item.style.opacity='0'; item.style.transform='translateY(10px)'; setTimeout(()=>item.remove(),300); }, 2600);
+  setTimeout(()=>{ item.style.opacity='0'; item.style.transform='translateY(10px)'; setTimeout(()=>item.remove(),320); }, 2700);
 }
 
 /* ===================== LANGUAGE ===================== */
-function t(key){ return (translations[lang] && translations[lang][key]) || key; }
-
 function applyLanguage(newLang, silent){
   lang = newLang;
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
   localStorage.setItem('mm_lang', lang);
+
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const key = el.getAttribute('data-i18n');
     if(translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
@@ -1062,9 +1303,12 @@ function applyLanguage(newLang, silent){
     const key = el.getAttribute('data-i18n-ph');
     if(translations[lang][key] !== undefined) el.setAttribute('placeholder', translations[lang][key]);
   });
-  document.getElementById('langLabel').textContent = lang === 'ar' ? 'EN' : 'AR';
-  document.getElementById('yearNow') && (document.getElementById('yearNow').textContent = new Date().getFullYear());
+  const label = document.getElementById('langLabel');
+  if(label) label.textContent = lang === 'ar' ? 'EN' : 'AR';
+
   renderAll();
+  buildTicker();
+  splitKinetic();
   refreshIcons();
   if(!silent) showToast(t('toast.langChanged'));
 }
@@ -1074,48 +1318,74 @@ function applyTheme(newTheme, silent){
   theme = newTheme;
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem('mm_theme', theme);
-  const icon = document.querySelector('#themeToggle i');
-  if(icon) icon.setAttribute('data-lucide', theme === 'dark' ? 'moon' : 'sun');
+  const btn = document.getElementById('themeToggle');
+  if(btn){ btn.innerHTML = '<i data-lucide="'+(theme === 'dark' ? 'moon' : 'sun')+'"></i>'; }
   refreshIcons();
   if(!silent) showToast(t('toast.themeChanged'));
 }
 
-/* ===================== RENDER: SOCIAL / CONTACT ===================== */
-function renderSocial(){
-  const s = DATA.social;
-  const notSet = t('contact.notSet');
-  document.getElementById('infoEmail').textContent = s.email || notSet;
-  document.getElementById('infoPhone').textContent = s.phone || notSet;
-  document.getElementById('infoLocation').textContent = s.location || notSet;
-  document.getElementById('infoGithub').textContent = s.github || notSet;
-  document.getElementById('infoLinkedin').textContent = s.linkedin || notSet;
+/* ===================== KINETIC TITLE ===================== */
+function splitKinetic(){
+  document.querySelectorAll('.kinetic').forEach(el=>{
+    const text = el.textContent.trim();
+    if(!text) return;
+    el.innerHTML = text.split(/\s+/).map((w,i)=>
+      '<span class="word"><span class="word-inner" style="transition-delay:'+(i*80)+'ms">'+escapeHtml(w)+'</span></span>'
+    ).join(' ');
+    requestAnimationFrame(()=>el.classList.add('in'));
+  });
+}
 
-  const heroSocials = document.getElementById('heroSocials');
-  const footerSocials = document.getElementById('footerSocials');
-  const items = [
-    {icon:'github', url:s.github},
-    {icon:'linkedin', url:s.linkedin},
-    {icon:'mail', url:s.email ? 'mailto:'+s.email : ''}
-  ];
-  const buildIcon = it => {
-    const valid = it.url && it.url.length > 2;
-    return '<a class="icon-btn" href="'+(valid?it.url:'#contact')+'" '+(valid?'target="_blank" rel="noopener"':'')+' title="'+it.icon+'"><i data-lucide="'+it.icon+'"></i></a>';
-  };
-  heroSocials.innerHTML = items.map(buildIcon).join('');
-  footerSocials.innerHTML = items.map(buildIcon).join('');
+/* ===================== TICKER ===================== */
+function buildTicker(){
+  const track = document.getElementById('tickerTrack');
+  if(!track) return;
+  const items = translations[lang]["ticker.items"] || [];
+  const icons = ['sparkles','brain','cpu','code-2','globe','binary','scan-eye','database','radio-tower'];
+  const html = items.map((it,i)=>'<span class="ticker-item"><i data-lucide="'+icons[i%icons.length]+'"></i>'+escapeHtml(it)+'</span>').join('');
+  track.innerHTML = html + html;
   refreshIcons();
 }
 
-/* ===================== RENDER: PROJECTS ===================== */
+/* ===================== SOCIAL / CONTACT ===================== */
+function renderSocial(){
+  const s = DATA.social || {};
+  const notSet = t('contact.notSet');
+  const setTxt = (id,val)=>{ const el = document.getElementById(id); if(el){ el.textContent = val || notSet; el.classList.toggle('placeholder-text', !val); } };
+  setTxt('infoEmail', s.email);
+  setTxt('infoPhone', s.phone);
+  setTxt('infoLocation', s.location);
+  setTxt('infoGithub', s.github);
+  setTxt('infoLinkedin', s.linkedin);
+
+  const items = [
+    {icon:'github', url:s.github, label:'GitHub'},
+    {icon:'linkedin', url:s.linkedin, label:'LinkedIn'},
+    {icon:'mail', url:s.email ? 'mailto:'+s.email : '', label:'Email'}
+  ];
+  const build = it => {
+    const valid = it.url && it.url.length > 2;
+    return '<a class="icon-btn" href="'+(valid ? escapeHtml(it.url) : '#contact')+'" '+
+      (valid ? 'target="_blank" rel="noopener"' : '')+' title="'+it.label+'" aria-label="'+it.label+'">'+
+      '<i data-lucide="'+it.icon+'"></i></a>';
+  };
+  const hero = document.getElementById('heroSocials');
+  const foot = document.getElementById('footerSocials');
+  if(hero) hero.innerHTML = items.map(build).join('');
+  if(foot) foot.innerHTML = items.map(build).join('');
+  refreshIcons();
+}
+
+/* ===================== PROJECTS ===================== */
 let currentFilter = 'all';
 let currentSearch = '';
-
 function renderProjects(){
   const grid = document.getElementById('projectsGrid');
+  if(!grid) return;
   const term = currentSearch.trim().toLowerCase();
-  const filtered = DATA.projects.filter(p=>{
-    const title = (lang==='ar'? p.titleAr : p.titleEn).toLowerCase();
-    const desc = (lang==='ar'? p.descAr : p.descEn).toLowerCase();
+  const filtered = (DATA.projects || []).filter(p=>{
+    const title = ((lang==='ar' ? p.titleAr : p.titleEn) || '').toLowerCase();
+    const desc = ((lang==='ar' ? p.descAr : p.descEn) || '').toLowerCase();
     const tags = (p.tags||[]).join(' ').toLowerCase();
     const matchSearch = !term || title.includes(term) || desc.includes(term) || tags.includes(term);
     const matchFilter = currentFilter === 'all' || p.category === currentFilter;
@@ -1123,233 +1393,301 @@ function renderProjects(){
   });
 
   if(filtered.length === 0){
-    grid.innerHTML = '<div class="empty-state"><p>'+t('projects.noResults')+'</p></div>';
+    grid.innerHTML = '<div class="empty-state reveal in"><i data-lucide="search-x"></i><p>'+escapeHtml(t('projects.noResults'))+'</p></div>';
+    refreshIcons();
     return;
   }
 
-  grid.innerHTML = filtered.map(p=>{
-    const title = lang==='ar' ? p.titleAr : p.titleEn;
-    const desc = lang==='ar' ? p.descAr : p.descEn;
+  grid.innerHTML = filtered.map((p,idx)=>{
+    const title = (lang==='ar' ? p.titleAr : p.titleEn) || p.titleEn || p.titleAr || '—';
+    const desc = (lang==='ar' ? p.descAr : p.descEn) || p.descEn || p.descAr || '';
     const catLabel = t('projects.f_'+p.category) || p.category;
     const validLink = p.link && p.link.trim().length > 4;
     const linkHtml = validLink
-      ? '<a class="proj-link" href="'+p.link+'" target="_blank" rel="noopener">'+t('projects.viewLink')+'<i data-lucide="arrow-up-right"></i></a>'
-      : '<span class="proj-link" style="color:var(--text-mute);cursor:not-allowed;">'+t('projects.noLink')+'</span>';
-    return '<div class="proj-card glass reveal in">'+
-      '<div class="proj-top"><div class="icon-circle"><i data-lucide="'+p.icon+'"></i></div><span class="proj-cat-tag">'+catLabel+'</span></div>'+
-      '<h3>'+title+'</h3>'+
-      '<p class="desc">'+desc+'</p>'+
-      '<div class="proj-tags">'+(p.tags||[]).map(tg=>'<span class="tag-pill">'+tg+'</span>').join('')+'</div>'+
-      '<div class="proj-footer">'+linkHtml+'</div>'+
+      ? '<a class="proj-link" href="'+escapeHtml(p.link)+'" target="_blank" rel="noopener">'+escapeHtml(t('projects.viewLink'))+'<i data-lucide="arrow-up-right"></i></a>'
+      : '<span class="proj-link" style="color:var(--text-mute)">'+escapeHtml(t('projects.noLink'))+'</span>';
+    const img = p.image ? escapeHtml(p.image) : '';
+    return '<article class="proj-card glass reveal" style="transition-delay:'+(idx*70)+'ms">'+
+      '<div class="proj-media">'+
+        (img ? '<img src="'+img+'" alt="'+escapeHtml(title)+'" loading="lazy" onerror="this.style.display=\'none\'">' : '')+
+        '<span class="proj-cat-tag">'+escapeHtml(catLabel)+'</span>'+
+      '</div>'+
+      '<div class="proj-body">'+
+        '<div style="display:flex;align-items:center;gap:12px">'+
+          '<div class="proj-icon"><i data-lucide="'+escapeHtml(p.icon||'layers')+'"></i></div>'+
+          '<h3>'+escapeHtml(title)+'</h3>'+
+        '</div>'+
+        '<p class="desc">'+escapeHtml(desc)+'</p>'+
+        '<div class="proj-tags">'+(p.tags||[]).map(tg=>'<span class="tag-pill">'+escapeHtml(tg)+'</span>').join('')+'</div>'+
+        '<div class="proj-footer">'+linkHtml+'</div>'+
+      '</div>'+
+    '</article>';
+  }).join('');
+  refreshIcons();
+  observeReveals();
+}
+
+/* ===================== SKILLS ===================== */
+function renderSkills(){
+  const grid = document.getElementById('skillsGrid');
+  if(!grid) return;
+  grid.innerHTML = SKILLS.map(card=>{
+    return '<div class="skill-card glass reveal">'+
+      '<h3><i data-lucide="'+card.icon+'"></i><span>'+escapeHtml(t(card.titleKey))+'</span></h3>'+
+      card.items.map(it=>{
+        const name = translations[lang][it.name] || it.name;
+        return '<div class="skill-row">'+
+          '<div class="labels"><span>'+escapeHtml(name)+'</span><span>'+escapeHtml(t(it.lvl))+'</span></div>'+
+          '<div class="bar-track"><div class="bar-fill" data-target="'+it.pct+'%"></div></div>'+
+        '</div>';
+      }).join('')+
     '</div>';
   }).join('');
   refreshIcons();
+  observeReveals();
+  observeBars();
 }
 
-/* ===================== RENDER: EDUCATION ===================== */
+/* ===================== EDUCATION / JOURNEY / GOALS ===================== */
 function renderEducation(){
   const grid = document.getElementById('educationGrid');
-  grid.innerHTML = DATA.education.map(e=>{
-    const degree = lang==='ar'? e.degreeAr : e.degreeEn;
-    const inst = lang==='ar'? e.instAr : e.instEn;
-    const period = lang==='ar'? e.periodAr : e.periodEn;
-    const status = lang==='ar'? e.statusAr : e.statusEn;
-    return '<div class="edu-card glass reveal in">'+
+  if(!grid) return;
+  grid.innerHTML = (DATA.education||[]).map(e=>{
+    const degree = (lang==='ar'? e.degreeAr : e.degreeEn) || e.degreeEn || e.degreeAr || '—';
+    const inst = (lang==='ar'? e.instAr : e.instEn) || e.instEn || e.instAr || '—';
+    const period = (lang==='ar'? e.periodAr : e.periodEn) || e.periodEn || e.periodAr || '';
+    const status = (lang==='ar'? e.statusAr : e.statusEn) || e.statusEn || e.statusAr || '';
+    return '<div class="edu-card glass reveal">'+
       '<div class="icon-circle"><i data-lucide="graduation-cap"></i></div>'+
-      '<div><h3>'+degree+'</h3><p class="inst">'+inst+'</p><div class="meta"><span class="badge">'+period+'</span><span class="badge">'+status+'</span></div></div>'+
+      '<div><h3>'+escapeHtml(degree)+'</h3><p class="inst">'+escapeHtml(inst)+'</p>'+
+      '<div class="meta">'+
+        (period ? '<span class="badge"><i data-lucide="calendar"></i>'+escapeHtml(period)+'</span>' : '')+
+        (status ? '<span class="badge"><i data-lucide="award"></i>'+escapeHtml(status)+'</span>' : '')+
+      '</div></div>'+
     '</div>';
   }).join('');
   refreshIcons();
+  observeReveals();
 }
 
-/* ===================== RENDER: JOURNEY ===================== */
 function renderJourney(){
   const list = document.getElementById('timelineList');
-  list.innerHTML = DATA.journey.map(j=>{
-    const date = lang==='ar'? j.dateAr : j.dateEn;
-    const title = lang==='ar'? j.titleAr : j.titleEn;
-    const desc = lang==='ar'? j.descAr : j.descEn;
-    return '<div class="t-item reveal in"><span class="t-dot"></span><div class="t-date">'+date+'</div><h3>'+title+'</h3><p>'+desc+'</p></div>';
+  if(!list) return;
+  const items = (DATA.journey||[]).map(j=>{
+    const date = (lang==='ar'? j.dateAr : j.dateEn) || j.dateEn || j.dateAr || '';
+    const title = (lang==='ar'? j.titleAr : j.titleEn) || j.titleEn || j.titleAr || '';
+    const desc = (lang==='ar'? j.descAr : j.descEn) || j.descEn || j.descAr || '';
+    return '<div class="t-item reveal"><span class="t-dot"></span>'+
+      '<div class="t-item-inner">'+
+        '<div class="t-date">'+escapeHtml(date)+'</div>'+
+        '<h3>'+escapeHtml(title)+'</h3>'+
+        '<p>'+escapeHtml(desc)+'</p>'+
+      '</div>'+
+    '</div>';
   }).join('');
+  list.innerHTML = '<div class="t-line"><span id="timelineProgress"></span></div>' + items;
+  observeReveals();
+  updateTimelineProgress();
 }
 
-/* ===================== RENDER: BIO ===================== */
+function renderGoals(){
+  const grid = document.getElementById('goalsGrid');
+  if(!grid) return;
+  grid.innerHTML = (DATA.goals||DEFAULT_DATA.goals).map((g,i)=>{
+    const title = t('goals.'+g.key+'t');
+    const desc = t('goals.'+g.key+'d');
+    return '<div class="goal-card glass reveal" style="transition-delay:'+(i*60)+'ms">'+
+      '<div class="goal-index">'+String(i+1).padStart(2,'0')+'</div>'+
+      '<div class="icon-circle"><i data-lucide="'+escapeHtml(g.icon)+'"></i></div>'+
+      '<h3>'+escapeHtml(title)+'</h3>'+
+      '<p>'+escapeHtml(desc)+'</p>'+
+    '</div>';
+  }).join('');
+  refreshIcons();
+  observeReveals();
+}
+
 function renderBio(){
-  document.getElementById('aboutBioText').textContent = lang==='ar' ? DATA.bio.ar : DATA.bio.en;
+  const el = document.getElementById('aboutBioText');
+  if(el) el.textContent = lang==='ar' ? (DATA.bio.ar || '') : (DATA.bio.en || '');
+}
+
+function renderStats(){
+  document.querySelectorAll('.count-up').forEach(el=>{
+    const target = parseInt(el.getAttribute('data-count'),10) || 0;
+    el.setAttribute('data-count', (DATA.projects||[]).length);
+  });
+  runCounters();
 }
 
 function renderAll(){
   renderBio();
   renderProjects();
+  renderSkills();
   renderEducation();
   renderJourney();
+  renderGoals();
   renderSocial();
+  renderStats();
 }
 
-/* ===================== SCROLL REVEAL ===================== */
-function initReveal(){
-  const els = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('in'); } });
-  }, {threshold:0.12});
-  els.forEach(el=>obs.observe(el));
-
-  const bars = document.querySelectorAll('.bar-fill');
-  const barObs = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.style.width = entry.target.getAttribute('data-target');
-        barObs.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.3});
-  bars.forEach(b=>barObs.observe(b));
-}
-
-/* ===================== NAV / UI EVENTS ===================== */
-document.addEventListener('DOMContentLoaded', ()=>{
-  applyTheme(theme, true);
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  document.getElementById('langLabel').textContent = lang === 'ar' ? 'EN' : 'AR';
-  applyLanguage(lang, true);
-  initReveal();
-  refreshIcons();
-
-  document.getElementById('themeToggle').addEventListener('click', ()=>{
-    applyTheme(theme === 'dark' ? 'light' : 'dark');
-  });
-  document.getElementById('langToggle').addEventListener('click', ()=>{
-    applyLanguage(lang === 'ar' ? 'en' : 'ar');
-  });
-
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
-  menuToggle.addEventListener('click', ()=>{
-    navLinks.classList.toggle('open');
-    const i = menuToggle.querySelector('i');
-    i.setAttribute('data-lucide', navLinks.classList.contains('open') ? 'x' : 'menu');
-    refreshIcons();
-  });
-  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
-    navLinks.classList.remove('open');
-    menuToggle.querySelector('i').setAttribute('data-lucide','menu');
-    refreshIcons();
-  }));
-
-  // active link on scroll
-  const sections = document.querySelectorAll('main section[id]');
-  const navAnchors = document.querySelectorAll('.nav-link[href^="#"]');
-  window.addEventListener('scroll', ()=>{
-    let current = '';
-    sections.forEach(sec=>{
-      const rect = sec.getBoundingClientRect();
-      if(rect.top <= 120 && rect.bottom >= 120) current = sec.id;
-    });
-    navAnchors.forEach(a=>{
-      a.classList.toggle('active', a.getAttribute('href') === '#'+current);
-    });
-    const st = document.getElementById('scrollTop');
-    st.classList.toggle('show', window.scrollY > 500);
-  });
-
-  document.getElementById('scrollTop').addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
-
-  // Projects search/filter
-  document.getElementById('projectSearch').addEventListener('input', (e)=>{
-    currentSearch = e.target.value;
-    renderProjects();
-  });
-  document.getElementById('filterGroup').addEventListener('click', (e)=>{
-    const btn = e.target.closest('.filter-btn');
-    if(!btn) return;
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.getAttribute('data-filter');
-    renderProjects();
-  });
-
-  // Contact form
-  document.getElementById('contactForm').addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const name = document.getElementById('cName').value.trim();
-    const email = document.getElementById('cEmail').value.trim();
-    const msg = document.getElementById('cMessage').value.trim();
-    const errEl = document.getElementById('contactError');
-    const successEl = document.getElementById('contactSuccess');
-    successEl.classList.remove('show');
-    const emailRe = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-
-    if(name.length < 2){ errEl.textContent = t('contact.err_name'); return; }
-    if(!emailRe.test(email)){ errEl.textContent = t('contact.err_email'); return; }
-    if(msg.length < 10){ errEl.textContent = t('contact.err_msg'); return; }
-
-    errEl.textContent = '';
-    const messages = loadMessages();
-    messages.unshift({name, email, message:msg, date:new Date().toISOString()});
-    saveMessages(messages);
-    successEl.classList.add('show');
-    document.getElementById('contactForm').reset();
-    showToast(t('contact.successMsg'));
-  });
-
-  // Admin entry points
-  document.getElementById('navAdminBtn').addEventListener('click', openAdmin);
-  document.getElementById('footerAdminBtn').addEventListener('click', openAdmin);
-  document.getElementById('adminExitBtn').addEventListener('click', closeAdmin);
-  document.getElementById('adminBackFromLogin').addEventListener('click', (e)=>{ e.preventDefault(); closeAdmin(); });
-  document.getElementById('adminLogoutBtn').addEventListener('click', ()=>{
-    sessionStorage.removeItem('mm_admin_auth');
-    document.getElementById('adminDashboardScreen').hidden = true;
-    document.getElementById('adminLoginScreen').hidden = false;
-  });
-  document.getElementById('adminLoginBtn').addEventListener('click', tryAdminLogin);
-  document.getElementById('adminPassInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter') tryAdminLogin(); });
-
-  initAdminTabs();
-  initAdminForms();
-});
-
-/* ===================== ADMIN: OPEN / CLOSE ===================== */
-function openAdmin(){
-  document.getElementById('siteMain').style.display = 'none';
-  document.getElementById('siteFooter').style.display = 'none';
-  document.getElementById('navbar').style.display = 'none';
-  document.getElementById('adminView').hidden = false;
-  window.scrollTo(0,0);
-  if(sessionStorage.getItem('mm_admin_auth') === '1'){
-    showAdminDashboard();
+/* ===================== OBSERVERS ===================== */
+let revealObs = null;
+let barObs = null;
+function observeReveals(){
+  if(!revealObs){
+    revealObs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); revealObs.unobserve(e.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
   }
+  document.querySelectorAll('.reveal:not([data-obs]), .reveal-mask:not([data-obs])').forEach(el=>{
+    el.setAttribute('data-obs','1');
+    revealObs.observe(el);
+  });
+}
+function observeBars(){
+  if(!barObs){
+    barObs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.style.width = e.target.getAttribute('data-target');
+          barObs.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.25});
+  }
+  document.querySelectorAll('.bar-fill:not([data-bar])').forEach(b=>{
+    b.setAttribute('data-bar','1');
+    barObs.observe(b);
+  });
+}
+function runCounters(){
+  const counters = document.querySelectorAll('.count-up');
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.getAttribute('data-count'),10) || 0;
+      const dur = 1200; const start = performance.now();
+      function step(now){
+        const p = Math.min((now-start)/dur, 1);
+        const eased = 1 - Math.pow(1-p, 3);
+        el.textContent = Math.round(target * eased);
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      obs.unobserve(el);
+    });
+  }, {threshold:0.4});
+  counters.forEach(c=>obs.observe(c));
+}
+
+/* ===================== SCROLL EFFECTS ===================== */
+function updateTimelineProgress(){
+  const list = document.getElementById('timelineList');
+  const bar = document.getElementById('timelineProgress');
+  if(!list || !bar) return;
+  const rect = list.getBoundingClientRect();
+  const vh = window.innerHeight;
+  const total = rect.height + vh*0.4;
+  const passed = Math.min(Math.max(vh*0.7 - rect.top, 0), total);
+  const pct = Math.min(100, (passed/total)*100);
+  bar.style.height = pct + '%';
+}
+function onScroll(){
+  const y = window.scrollY;
+  const doc = document.documentElement;
+  const max = doc.scrollHeight - window.innerHeight;
+  const prog = document.getElementById('scrollProgress');
+  if(prog) prog.style.width = (max > 0 ? (y/max)*100 : 0) + '%';
+
+  const nav = document.getElementById('navbar');
+  if(nav) nav.classList.toggle('scrolled', y > 24);
+
+  const st = document.getElementById('scrollTop');
+  if(st) st.classList.toggle('show', y > 520);
+
+  const sections = document.querySelectorAll('main section[id]');
+  let current = '';
+  sections.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 130 && rect.bottom >= 130) current = sec.id;
+  });
+  document.querySelectorAll('.nav-link[href^="#"]').forEach(a=>{
+    a.classList.toggle('active', a.getAttribute('href') === '#'+current);
+  });
+
+  updateTimelineProgress();
+}
+
+/* ===================== MAGNETIC BUTTONS ===================== */
+function initMagnetic(){
+  if(window.matchMedia('(hover: none)').matches) return;
+  document.querySelectorAll('.magnetic').forEach(btn=>{
+    btn.addEventListener('mousemove', e=>{
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width/2;
+      const y = e.clientY - r.top - r.height/2;
+      btn.style.transform = 'translate('+(x*0.16)+'px,'+(y*0.22)+'px)';
+    });
+    btn.addEventListener('mouseleave', ()=>{
+      btn.style.transform = 'translate(0,0)';
+    });
+  });
+}
+
+/* ===================== ADMIN ===================== */
+function openAdmin(){
+  const main = document.getElementById('siteMain');
+  const foot = document.getElementById('siteFooter');
+  const nav = document.getElementById('navbar');
+  if(main) main.style.display = 'none';
+  if(foot) foot.style.display = 'none';
+  if(nav) nav.style.display = 'none';
+  const view = document.getElementById('adminView');
+  if(view) view.hidden = false;
+  window.scrollTo(0,0);
+  if(sessionStorage.getItem('mm_admin_auth') === '1') showAdminDashboard();
+  refreshIcons();
 }
 function closeAdmin(){
-  document.getElementById('siteMain').style.display = '';
-  document.getElementById('siteFooter').style.display = '';
-  document.getElementById('navbar').style.display = '';
-  document.getElementById('adminView').hidden = true;
+  const main = document.getElementById('siteMain');
+  const foot = document.getElementById('siteFooter');
+  const nav = document.getElementById('navbar');
+  if(main) main.style.display = '';
+  if(foot) foot.style.display = '';
+  if(nav) nav.style.display = '';
+  const view = document.getElementById('adminView');
+  if(view) view.hidden = true;
   window.scrollTo(0,0);
 }
 function tryAdminLogin(){
-  const val = document.getElementById('adminPassInput').value;
+  const input = document.getElementById('adminPassInput');
   const errEl = document.getElementById('adminLoginError');
-  if(val === ADMIN_PASS){
+  if(!input || !errEl) return;
+  if(input.value === ADMIN_PASS){
     errEl.textContent = '';
     sessionStorage.setItem('mm_admin_auth','1');
     showAdminDashboard();
   } else {
     errEl.textContent = t('admin.wrongPass');
+    input.value = '';
+    input.focus();
   }
 }
 function showAdminDashboard(){
-  document.getElementById('adminLoginScreen').hidden = true;
-  document.getElementById('adminDashboardScreen').hidden = false;
+  const login = document.getElementById('adminLoginScreen');
+  const dash = document.getElementById('adminDashboardScreen');
+  if(login) login.hidden = true;
+  if(dash) dash.hidden = false;
   renderOverview();
   renderProjectsAdmin();
   fillContentForms();
   renderMessagesAdmin();
   refreshIcons();
 }
-
-/* ===================== ADMIN: TABS ===================== */
 function initAdminTabs(){
   document.querySelectorAll('.admin-tab').forEach(tabBtn=>{
     tabBtn.addEventListener('click', ()=>{
@@ -1359,296 +1697,264 @@ function initAdminTabs(){
       document.querySelectorAll('.admin-panel').forEach(p=>{
         p.hidden = p.getAttribute('data-panel') !== target;
       });
+      refreshIcons();
     });
   });
 }
-
-/* ===================== ADMIN: OVERVIEW ===================== */
 function renderOverview(){
+  const row = document.getElementById('statsRow');
+  if(!row) return;
   const messages = loadMessages();
-  const last = localStorage.getItem('mm_last_updated');
-  const lastStr = last ? new Date(last).toLocaleString(lang==='ar'?'ar-EG':'en-US') : '—';
-  document.getElementById('statsRow').innerHTML =
-    '<div class="mini-stat"><div class="num">'+DATA.projects.length+'</div><div class="lbl">'+(lang==='ar'?'إجمالي المشاريع':'Total Projects')+'</div></div>'+
-    '<div class="mini-stat"><div class="num">'+DATA.education.length+'</div><div class="lbl">'+(lang==='ar'?'سجلات التعليم':'Education Entries')+'</div></div>'+
-    '<div class="mini-stat"><div class="num">'+DATA.journey.length+'</div><div class="lbl">'+(lang==='ar'?'محطات المسار':'Journey Milestones')+'</div></div>'+
-    '<div class="mini-stat"><div class="num">'+messages.length+'</div><div class="lbl">'+(lang==='ar'?'رسائل مستلمة':'Messages Received')+'</div></div>';
+  row.innerHTML = [
+    {n:(DATA.projects||[]).length, l:t('stats.projects')},
+    {n:(DATA.education||[]).length, l:t('stats.education')},
+    {n:(DATA.journey||[]).length, l:t('stats.journey')},
+    {n:messages.length, l:t('stats.messages')}
+  ].map(s=>'<div class="mini-stat"><div class="num">'+s.n+'</div><div class="lbl">'+escapeHtml(s.l)+'</div></div>').join('');
 }
-
-/* ===================== ADMIN: PROJECTS CRUD ===================== */
 function renderProjectsAdmin(){
   const list = document.getElementById('projectsAdminList');
-  list.innerHTML = DATA.projects.map(p=>{
-    return '<div class="admin-entry">'+
-      '<div class="admin-entry-head"><span>#'+p.id+' • '+p.category.toUpperCase()+'</span>'+
-      '<div class="entry-actions">'+
-        '<button class="icon-btn icon-btn-sm" onclick="editProject('+p.id+')" title="edit"><i data-lucide="pencil"></i></button>'+
-        '<button class="icon-btn icon-btn-sm" onclick="deleteProject('+p.id+')" title="delete"><i data-lucide="trash-2"></i></button>'+
-      '</div></div>'+
-      '<strong>'+p.titleEn+' / '+p.titleAr+'</strong>'+
-      '<p style="font-size:.82rem;color:var(--text-dim);margin-top:6px;">'+p.descEn+'</p>'+
-    '</div>';
-  }).join('') || '<p style="color:var(--text-mute);font-size:.85rem;">—</p>';
+  if(!list) return;
+  list.innerHTML = (DATA.projects||[]).map(p=>
+    '<div class="admin-entry">'+
+      '<div class="admin-entry-head"><span>#'+p.id+' • '+escapeHtml((p.category||'').toUpperCase())+'</span>'+
+        '<div class="entry-actions">'+
+          '<button class="icon-btn icon-btn-sm" onclick="editProject('+p.id+')" title="edit"><i data-lucide="pencil"></i></button>'+
+          '<button class="icon-btn icon-btn-sm" onclick="deleteProject('+p.id+')" title="delete"><i data-lucide="trash-2"></i></button>'+
+        '</div>'+
+      '</div>'+
+      '<strong>'+escapeHtml(p.titleEn||'')+' / '+escapeHtml(p.titleAr||'')+'</strong>'+
+      '<p style="font-size:.83rem;color:var(--text-dim);margin-top:6px">'+escapeHtml(p.descEn||'')+'</p>'+
+    '</div>'
+  ).join('') || '<p style="color:var(--text-mute);font-size:.86rem">—</p>';
   refreshIcons();
 }
-
 function clearProjectForm(){
-  document.getElementById('pfTitleEn').value='';
-  document.getElementById('pfTitleAr').value='';
-  document.getElementById('pfDescEn').value='';
-  document.getElementById('pfDescAr').value='';
-  document.getElementById('pfCategory').value='ai';
-  document.getElementById('pfIcon').value='bot';
-  document.getElementById('pfTags').value='';
-  document.getElementById('pfLink').value='';
-  document.getElementById('pfEditId').value='';
+  const ids = ['pfTitleEn','pfTitleAr','pfDescEn','pfDescAr','pfTags','pfLink','pfImage','pfEditId'];
+  ids.forEach(id=>{ const el = document.getElementById(id); if(el) el.value=''; });
+  const cat = document.getElementById('pfCategory'); if(cat) cat.value='ai';
+  const ic = document.getElementById('pfIcon'); if(ic) ic.value='bot';
 }
-
 function editProject(id){
-  const p = DATA.projects.find(x=>x.id===id);
+  const p = (DATA.projects||[]).find(x=>x.id===id);
   if(!p) return;
-  document.getElementById('pfTitleEn').value=p.titleEn;
-  document.getElementById('pfTitleAr').value=p.titleAr;
-  document.getElementById('pfDescEn').value=p.descEn;
-  document.getElementById('pfDescAr').value=p.descAr;
-  document.getElementById('pfCategory').value=p.category;
-  document.getElementById('pfIcon').value=p.icon;
-  document.getElementById('pfTags').value=(p.tags||[]).join(', ');
-  document.getElementById('pfLink').value=p.link||'';
-  document.getElementById('pfEditId').value=p.id;
-  document.querySelector('.admin-card').scrollIntoView({behavior:'smooth'});
+  const set = (el,v)=>{ const n = document.getElementById(el); if(n) n.value = v || ''; };
+  set('pfTitleEn', p.titleEn); set('pfTitleAr', p.titleAr);
+  set('pfDescEn', p.descEn); set('pfDescAr', p.descAr);
+  set('pfCategory', p.category); set('pfIcon', p.icon);
+  set('pfTags', (p.tags||[]).join(', ')); set('pfLink', p.link); set('pfImage', p.image);
+  set('pfEditId', p.id);
+  const card = document.querySelector('.admin-panel[data-panel="projects"] .admin-card');
+  if(card) card.scrollIntoView({behavior:'smooth', block:'start'});
 }
-
 function deleteProject(id){
   if(!confirm(t('admin.deleteConfirm'))) return;
-  DATA.projects = DATA.projects.filter(x=>x.id!==id);
+  DATA.projects = (DATA.projects||[]).filter(x=>x.id!==id);
   saveData(DATA);
-  renderProjectsAdmin();
-  renderOverview();
-  renderProjects();
+  renderProjectsAdmin(); renderOverview(); renderProjects(); renderStats();
   showToast(t('admin.saved'));
 }
-
 function initAdminForms(){
-  document.getElementById('pfResetBtn').addEventListener('click', clearProjectForm);
-  document.getElementById('pfSaveBtn').addEventListener('click', ()=>{
-    const titleEn = document.getElementById('pfTitleEn').value.trim();
-    const titleAr = document.getElementById('pfTitleAr').value.trim();
-    if(!titleEn && !titleAr){ alert(lang==='ar'?'أضف عنوان المشروع':'Please add a project title'); return; }
-    const editId = document.getElementById('pfEditId').value;
-    const tags = document.getElementById('pfTags').value.split(',').map(s=>s.trim()).filter(Boolean);
+  const pfResetBtn = document.getElementById('pfResetBtn');
+  if(pfResetBtn) pfResetBtn.addEventListener('click', clearProjectForm);
+
+  const pfSaveBtn = document.getElementById('pfSaveBtn');
+  if(pfSaveBtn) pfSaveBtn.addEventListener('click', ()=>{
+    const val = id => (document.getElementById(id) ? document.getElementById(id).value.trim() : '');
+    const titleEn = val('pfTitleEn'), titleAr = val('pfTitleAr');
+    if(!titleEn && !titleAr){
+      alert(lang==='ar' ? 'أضف عنوان المشروع' : 'Please add a project title');
+      return;
+    }
+    const editId = val('pfEditId');
+    const tags = val('pfTags').split(',').map(s=>s.trim()).filter(Boolean);
     const obj = {
       titleEn: titleEn || titleAr, titleAr: titleAr || titleEn,
-      descEn: document.getElementById('pfDescEn').value.trim(),
-      descAr: document.getElementById('pfDescAr').value.trim(),
-      category: document.getElementById('pfCategory').value,
-      icon: document.getElementById('pfIcon').value,
-      tags: tags,
-      link: document.getElementById('pfLink').value.trim()
+      descEn: val('pfDescEn'), descAr: val('pfDescAr'),
+      category: val('pfCategory'), icon: val('pfIcon'),
+      tags, link: val('pfLink'), image: val('pfImage')
     };
     if(editId){
-      const idx = DATA.projects.findIndex(x=>x.id===parseInt(editId));
-      if(idx > -1) DATA.projects[idx] = {...DATA.projects[idx], ...obj};
+      const idx = (DATA.projects||[]).findIndex(x=>x.id===parseInt(editId,10));
+      if(idx > -1) DATA.projects[idx] = Object.assign({}, DATA.projects[idx], obj);
     } else {
-      const newId = DATA.projects.length ? Math.max(...DATA.projects.map(p=>p.id))+1 : 1;
-      DATA.projects.push({id:newId, ...obj});
+      const newId = DATA.projects.length ? Math.max.apply(null, DATA.projects.map(p=>p.id))+1 : 1;
+      DATA.projects.push(Object.assign({id:newId}, obj));
     }
     saveData(DATA);
     clearProjectForm();
-    renderProjectsAdmin();
-    renderOverview();
-    renderProjects();
+    renderProjectsAdmin(); renderOverview(); renderProjects(); renderStats();
     showToast(t('admin.saved'));
   });
 
-  // Bio
-  document.getElementById('bioSaveBtn').addEventListener('click', ()=>{
+  const bioSaveBtn = document.getElementById('bioSaveBtn');
+  if(bioSaveBtn) bioSaveBtn.addEventListener('click', ()=>{
+    DATA.bio = DATA.bio || {};
     DATA.bio.en = document.getElementById('bioEnInput').value;
     DATA.bio.ar = document.getElementById('bioArInput').value;
-    saveData(DATA);
-    renderBio();
-    showToast(t('admin.saved'));
+    saveData(DATA); renderBio(); showToast(t('admin.saved'));
   });
 
-  // Social
-  document.getElementById('socSaveBtn').addEventListener('click', ()=>{
-    DATA.social.email = document.getElementById('socEmail').value.trim();
-    DATA.social.phone = document.getElementById('socPhone').value.trim();
-    DATA.social.location = document.getElementById('socLocation').value.trim();
-    DATA.social.github = document.getElementById('socGithub').value.trim();
-    DATA.social.linkedin = document.getElementById('socLinkedin').value.trim();
-    saveData(DATA);
-    renderSocial();
-    showToast(t('admin.saved'));
+  const socSaveBtn = document.getElementById('socSaveBtn');
+  if(socSaveBtn) socSaveBtn.addEventListener('click', ()=>{
+    const v = id => (document.getElementById(id) ? document.getElementById(id).value.trim() : '');
+    DATA.social = {
+      email:v('socEmail'), phone:v('socPhone'), location:v('socLocation'),
+      github:v('socGithub'), linkedin:v('socLinkedin')
+    };
+    saveData(DATA); renderSocial(); showToast(t('admin.saved'));
   });
 
-  // Education add/save
-  document.getElementById('eduAddBtn').addEventListener('click', ()=>{
-    const newId = DATA.education.length ? Math.max(...DATA.education.map(e=>e.id))+1 : 1;
+  const eduAddBtn = document.getElementById('eduAddBtn');
+  if(eduAddBtn) eduAddBtn.addEventListener('click', ()=>{
+    const newId = DATA.education.length ? Math.max.apply(null, DATA.education.map(e=>e.id))+1 : 1;
     DATA.education.push({id:newId, degreeEn:'', degreeAr:'', instEn:'', instAr:'', periodEn:'', periodAr:'', statusEn:'', statusAr:''});
     renderEduAdmin();
   });
-  document.getElementById('eduSaveBtn').addEventListener('click', ()=>{
+
+  const eduSaveBtn = document.getElementById('eduSaveBtn');
+  if(eduSaveBtn) eduSaveBtn.addEventListener('click', ()=>{
     const rows = document.querySelectorAll('#eduAdminList .admin-entry');
     const updated = [];
     rows.forEach(row=>{
-      const id = parseInt(row.getAttribute('data-id'));
+      const id = parseInt(row.getAttribute('data-id'),10);
+      const val = c => { const n = row.querySelector(c); return n ? n.value.trim() : ''; };
       updated.push({
-        id,
-        degreeEn: row.querySelector('.f-degreeEn').value.trim(),
-        degreeAr: row.querySelector('.f-degreeAr').value.trim(),
-        instEn: row.querySelector('.f-instEn').value.trim(),
-        instAr: row.querySelector('.f-instAr').value.trim(),
-        periodEn: row.querySelector('.f-periodEn').value.trim(),
-        periodAr: row.querySelector('.f-periodAr').value.trim(),
-        statusEn: row.querySelector('.f-statusEn').value.trim(),
-        statusAr: row.querySelector('.f-statusAr').value.trim()
+        id, degreeEn:val('.f-degreeEn'), degreeAr:val('.f-degreeAr'),
+        instEn:val('.f-instEn'), instAr:val('.f-instAr'),
+        periodEn:val('.f-periodEn'), periodAr:val('.f-periodAr'),
+        statusEn:val('.f-statusEn'), statusAr:val('.f-statusAr')
       });
     });
     DATA.education = updated;
-    saveData(DATA);
-    renderEducation();
-    renderOverview();
-    showToast(t('admin.saved'));
+    saveData(DATA); renderEducation(); renderOverview(); showToast(t('admin.saved'));
   });
 
-  // Journey add/save
-  document.getElementById('jAddBtn').addEventListener('click', ()=>{
-    const newId = DATA.journey.length ? Math.max(...DATA.journey.map(j=>j.id))+1 : 1;
+  const jAddBtn = document.getElementById('jAddBtn');
+  if(jAddBtn) jAddBtn.addEventListener('click', ()=>{
+    const newId = DATA.journey.length ? Math.max.apply(null, DATA.journey.map(j=>j.id))+1 : 1;
     DATA.journey.push({id:newId, dateEn:'', dateAr:'', titleEn:'', titleAr:'', descEn:'', descAr:''});
     renderJourneyAdmin();
   });
-  document.getElementById('jSaveBtn').addEventListener('click', ()=>{
+
+  const jSaveBtn = document.getElementById('jSaveBtn');
+  if(jSaveBtn) jSaveBtn.addEventListener('click', ()=>{
     const rows = document.querySelectorAll('#journeyAdminList .admin-entry');
     const updated = [];
     rows.forEach(row=>{
-      const id = parseInt(row.getAttribute('data-id'));
+      const id = parseInt(row.getAttribute('data-id'),10);
+      const val = c => { const n = row.querySelector(c); return n ? n.value.trim() : ''; };
       updated.push({
-        id,
-        dateEn: row.querySelector('.f-dateEn').value.trim(),
-        dateAr: row.querySelector('.f-dateAr').value.trim(),
-        titleEn: row.querySelector('.f-titleEn').value.trim(),
-        titleAr: row.querySelector('.f-titleAr').value.trim(),
-        descEn: row.querySelector('.f-descEn').value.trim(),
-        descAr: row.querySelector('.f-descAr').value.trim()
+        id, dateEn:val('.f-dateEn'), dateAr:val('.f-dateAr'),
+        titleEn:val('.f-titleEn'), titleAr:val('.f-titleAr'),
+        descEn:val('.f-descEn'), descAr:val('.f-descAr')
       });
     });
     DATA.journey = updated;
-    saveData(DATA);
-    renderJourney();
-    renderOverview();
-    showToast(t('admin.saved'));
+    saveData(DATA); renderJourney(); renderOverview(); showToast(t('admin.saved'));
   });
 
-  document.getElementById('resetAllBtn').addEventListener('click', ()=>{
+  const resetAllBtn = document.getElementById('resetAllBtn');
+  if(resetAllBtn) resetAllBtn.addEventListener('click', ()=>{
     if(!confirm(t('admin.deleteConfirm'))) return;
     localStorage.removeItem('mm_cms_data');
     DATA = JSON.parse(JSON.stringify(DEFAULT_DATA));
     saveData(DATA);
-    renderAll();
-    renderProjectsAdmin();
-    fillContentForms();
-    renderOverview();
+    renderAll(); renderProjectsAdmin(); fillContentForms(); renderOverview();
     showToast(t('admin.reset_done'));
   });
 
-  document.getElementById('clearMsgsBtn').addEventListener('click', ()=>{
+  const clearMsgsBtn = document.getElementById('clearMsgsBtn');
+  if(clearMsgsBtn) clearMsgsBtn.addEventListener('click', ()=>{
     if(!confirm(t('admin.deleteConfirm'))) return;
-    saveMessages([]);
-    renderMessagesAdmin();
-    renderOverview();
+    saveMessages([]); renderMessagesAdmin(); renderOverview();
+    showToast(t('admin.saved'));
   });
 }
-
 function fillContentForms(){
-  document.getElementById('bioEnInput').value = DATA.bio.en;
-  document.getElementById('bioArInput').value = DATA.bio.ar;
-  document.getElementById('socEmail').value = DATA.social.email;
-  document.getElementById('socPhone').value = DATA.social.phone;
-  document.getElementById('socLocation').value = DATA.social.location;
-  document.getElementById('socGithub').value = DATA.social.github;
-  document.getElementById('socLinkedin').value = DATA.social.linkedin;
-  renderEduAdmin();
-  renderJourneyAdmin();
+  const set = (id,v)=>{ const el = document.getElementById(id); if(el) el.value = v || ''; };
+  set('bioEnInput', DATA.bio.en); set('bioArInput', DATA.bio.ar);
+  set('socEmail', DATA.social.email); set('socPhone', DATA.social.phone);
+  set('socLocation', DATA.social.location); set('socGithub', DATA.social.github);
+  set('socLinkedin', DATA.social.linkedin);
+  renderEduAdmin(); renderJourneyAdmin();
 }
-
 function renderEduAdmin(){
   const list = document.getElementById('eduAdminList');
-  list.innerHTML = DATA.education.map(e=>{
-    return '<div class="admin-entry" data-id="'+e.id+'">'+
+  if(!list) return;
+  list.innerHTML = (DATA.education||[]).map(e=>
+    '<div class="admin-entry" data-id="'+e.id+'">'+
       '<div class="admin-entry-head"><span>#'+e.id+'</span>'+
-      '<div class="entry-actions"><button class="icon-btn icon-btn-sm" onclick="removeEduRow('+e.id+')" title="delete"><i data-lucide="trash-2"></i></button></div></div>'+
+        '<div class="entry-actions"><button class="icon-btn icon-btn-sm" onclick="removeEduRow('+e.id+')" title="delete"><i data-lucide="trash-2"></i></button></div>'+
+      '</div>'+
       '<div class="form-row2">'+
         '<input class="form-control f-degreeEn" placeholder="Degree (EN)" value="'+escapeHtml(e.degreeEn)+'">'+
         '<input class="form-control f-degreeAr" placeholder="الدرجة (AR)" value="'+escapeHtml(e.degreeAr)+'">'+
       '</div>'+
-      '<div class="form-row2" style="margin-top:10px;">'+
+      '<div class="form-row2" style="margin-top:10px">'+
         '<input class="form-control f-instEn" placeholder="Institution (EN)" value="'+escapeHtml(e.instEn)+'">'+
         '<input class="form-control f-instAr" placeholder="المؤسسة (AR)" value="'+escapeHtml(e.instAr)+'">'+
       '</div>'+
-      '<div class="form-row2" style="margin-top:10px;">'+
+      '<div class="form-row2" style="margin-top:10px">'+
         '<input class="form-control f-periodEn" placeholder="Period (EN)" value="'+escapeHtml(e.periodEn)+'">'+
         '<input class="form-control f-periodAr" placeholder="الفترة (AR)" value="'+escapeHtml(e.periodAr)+'">'+
       '</div>'+
-      '<div class="form-row2" style="margin-top:10px;">'+
+      '<div class="form-row2" style="margin-top:10px">'+
         '<input class="form-control f-statusEn" placeholder="Status (EN)" value="'+escapeHtml(e.statusEn)+'">'+
         '<input class="form-control f-statusAr" placeholder="الحالة (AR)" value="'+escapeHtml(e.statusAr)+'">'+
       '</div>'+
-    '</div>';
-  }).join('');
+    '</div>'
+  ).join('');
   refreshIcons();
 }
 function removeEduRow(id){
-  DATA.education = DATA.education.filter(e=>e.id!==id);
+  DATA.education = (DATA.education||[]).filter(e=>e.id!==id);
   renderEduAdmin();
 }
-
 function renderJourneyAdmin(){
   const list = document.getElementById('journeyAdminList');
-  list.innerHTML = DATA.journey.map(j=>{
-    return '<div class="admin-entry" data-id="'+j.id+'">'+
+  if(!list) return;
+  list.innerHTML = (DATA.journey||[]).map(j=>
+    '<div class="admin-entry" data-id="'+j.id+'">'+
       '<div class="admin-entry-head"><span>#'+j.id+'</span>'+
-      '<div class="entry-actions"><button class="icon-btn icon-btn-sm" onclick="removeJourneyRow('+j.id+')" title="delete"><i data-lucide="trash-2"></i></button></div></div>'+
+        '<div class="entry-actions"><button class="icon-btn icon-btn-sm" onclick="removeJourneyRow('+j.id+')" title="delete"><i data-lucide="trash-2"></i></button></div>'+
+      '</div>'+
       '<div class="form-row2">'+
         '<input class="form-control f-dateEn" placeholder="Date/Stage (EN)" value="'+escapeHtml(j.dateEn)+'">'+
         '<input class="form-control f-dateAr" placeholder="المحطة (AR)" value="'+escapeHtml(j.dateAr)+'">'+
       '</div>'+
-      '<div class="form-row2" style="margin-top:10px;">'+
+      '<div class="form-row2" style="margin-top:10px">'+
         '<input class="form-control f-titleEn" placeholder="Title (EN)" value="'+escapeHtml(j.titleEn)+'">'+
         '<input class="form-control f-titleAr" placeholder="العنوان (AR)" value="'+escapeHtml(j.titleAr)+'">'+
       '</div>'+
-      '<div class="form-row2" style="margin-top:10px;">'+
-        '<textarea class="form-control f-descEn" placeholder="Description (EN)">'+escapeHtml(j.descEn)+'</textarea>'+
-        '<textarea class="form-control f-descAr" placeholder="الوصف (AR)">'+escapeHtml(j.descAr)+'</textarea>'+
+      '<div class="form-row2" style="margin-top:10px">'+
+        '<textarea class="form-control f-descEn" placeholder="Description (EN)" style="min-height:78px">'+escapeHtml(j.descEn)+'</textarea>'+
+        '<textarea class="form-control f-descAr" placeholder="الوصف (AR)" style="min-height:78px">'+escapeHtml(j.descAr)+'</textarea>'+
       '</div>'+
-    '</div>';
-  }).join('');
+    '</div>'
+  ).join('');
   refreshIcons();
 }
 function removeJourneyRow(id){
-  DATA.journey = DATA.journey.filter(j=>j.id!==id);
+  DATA.journey = (DATA.journey||[]).filter(j=>j.id!==id);
   renderJourneyAdmin();
 }
-
-function escapeHtml(str){
-  if(!str) return '';
-  return str.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
-/* ===================== ADMIN: MESSAGES ===================== */
 function renderMessagesAdmin(){
   const list = document.getElementById('messagesList');
+  if(!list) return;
   const messages = loadMessages();
   if(messages.length === 0){
-    list.innerHTML = '<p style="color:var(--text-mute);font-size:.85rem;">'+t('admin.noMsgs')+'</p>';
+    list.innerHTML = '<p style="color:var(--text-mute);font-size:.87rem">'+escapeHtml(t('admin.noMsgs'))+'</p>';
     return;
   }
   list.innerHTML = messages.map((m,idx)=>{
-    const d = new Date(m.date).toLocaleString(lang==='ar'?'ar-EG':'en-US');
+    const d = new Date(m.date).toLocaleString(lang==='ar' ? 'ar-EG' : 'en-US');
     return '<div class="msg-item">'+
-      '<div class="mhead"><span class="mname">'+escapeHtml(m.name)+' — '+escapeHtml(m.email)+'</span><span>'+d+'</span></div>'+
+      '<div class="mhead"><span class="mname">'+escapeHtml(m.name)+' — '+escapeHtml(m.email)+'</span><span>'+escapeHtml(d)+'</span></div>'+
       '<p>'+escapeHtml(m.message)+'</p>'+
-      '<div class="admin-footer-bar" style="margin-top:10px;"><button class="icon-btn icon-btn-sm" onclick="deleteMessage('+idx+')" title="delete"><i data-lucide="trash-2"></i></button></div>'+
+      '<div class="admin-footer-bar" style="margin-top:12px">'+
+        '<button class="icon-btn icon-btn-sm" onclick="deleteMessage('+idx+')" title="delete"><i data-lucide="trash-2"></i></button>'+
+      '</div>'+
     '</div>';
   }).join('');
   refreshIcons();
@@ -1657,9 +1963,154 @@ function deleteMessage(idx){
   const messages = loadMessages();
   messages.splice(idx,1);
   saveMessages(messages);
-  renderMessagesAdmin();
-  renderOverview();
+  renderMessagesAdmin(); renderOverview();
 }
+
+/* ===================== INIT ===================== */
+document.addEventListener('DOMContentLoaded', ()=>{
+  applyTheme(theme, true);
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  const label = document.getElementById('langLabel');
+  if(label) label.textContent = lang === 'ar' ? 'EN' : 'AR';
+  applyLanguage(lang, true);
+
+  const y = document.getElementById('yearNow');
+  if(y) y.textContent = new Date().getFullYear();
+
+  observeReveals();
+  observeBars();
+  runCounters();
+  splitKinetic();
+  initMagnetic();
+  refreshIcons();
+
+  const themeBtn = document.getElementById('themeToggle');
+  if(themeBtn) themeBtn.addEventListener('click', ()=>applyTheme(theme === 'dark' ? 'light' : 'dark'));
+
+  const langBtn = document.getElementById('langToggle');
+  if(langBtn) langBtn.addEventListener('click', ()=>applyLanguage(lang === 'ar' ? 'en' : 'ar'));
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(menuToggle && navLinks){
+    menuToggle.addEventListener('click', ()=>{
+      navLinks.classList.toggle('open');
+      const open = navLinks.classList.contains('open');
+      menuToggle.innerHTML = '<i data-lucide="'+(open ? 'x' : 'menu')+'"></i>';
+      refreshIcons();
+    });
+    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+      navLinks.classList.remove('open');
+      menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+      refreshIcons();
+    }));
+    document.addEventListener('click', e=>{
+      if(navLinks.classList.contains('open') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)){
+        navLinks.classList.remove('open');
+        menuToggle.innerHTML = '<i data-lucide="menu"></i>';
+        refreshIcons();
+      }
+    });
+  }
+
+  const scrollTop = document.getElementById('scrollTop');
+  if(scrollTop) scrollTop.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
+
+  const search = document.getElementById('projectSearch');
+  if(search) search.addEventListener('input', e=>{ currentSearch = e.target.value; renderProjects(); });
+
+  const filterGroup = document.getElementById('filterGroup');
+  if(filterGroup) filterGroup.addEventListener('click', e=>{
+    const btn = e.target.closest('.filter-btn');
+    if(!btn) return;
+    filterGroup.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.getAttribute('data-filter');
+    renderProjects();
+  });
+
+  const contactForm = document.getElementById('contactForm');
+  if(contactForm) contactForm.addEventListener('submit', e=>{
+    e.preventDefault();
+    const name = document.getElementById('cName').value.trim();
+    const email = document.getElementById('cEmail').value.trim();
+    const msg = document.getElementById('cMessage').value.trim();
+    const errEl = document.getElementById('contactError');
+    const successEl = document.getElementById('contactSuccess');
+    if(successEl) successEl.classList.remove('show');
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(name.length < 2){ errEl.textContent = t('contact.err_name'); return; }
+    if(!emailRe.test(email)){ errEl.textContent = t('contact.err_email'); return; }
+    if(msg.length < 10){ errEl.textContent = t('contact.err_msg'); return; }
+    errEl.textContent = '';
+    const messages = loadMessages();
+    messages.unshift({name, email, message:msg, date:new Date().toISOString()});
+    saveMessages(messages);
+    if(successEl) successEl.classList.add('show');
+    contactForm.reset();
+    showToast(t('contact.successMsg'));
+  });
+
+  const newsletterForm = document.getElementById('newsletterForm');
+  if(newsletterForm) newsletterForm.addEventListener('submit', e=>{
+    e.preventDefault();
+    const input = document.getElementById('newsletterEmail');
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(input && emailRe.test(input.value.trim())){
+      showToast(t('footer.newsOk'));
+      newsletterForm.reset();
+    }
+  });
+
+  const navAdminBtn = document.getElementById('navAdminBtn');
+  if(navAdminBtn) navAdminBtn.addEventListener('click', openAdmin);
+  const footerAdminBtn = document.getElementById('footerAdminBtn');
+  if(footerAdminBtn) footerAdminBtn.addEventListener('click', openAdmin);
+  const adminExitBtn = document.getElementById('adminExitBtn');
+  if(adminExitBtn) adminExitBtn.addEventListener('click', closeAdmin);
+  const adminBack = document.getElementById('adminBackFromLogin');
+  if(adminBack) adminBack.addEventListener('click', e=>{ e.preventDefault(); closeAdmin(); });
+  const adminLogoutBtn = document.getElementById('adminLogoutBtn');
+  if(adminLogoutBtn) adminLogoutBtn.addEventListener('click', ()=>{
+    sessionStorage.removeItem('mm_admin_auth');
+    const dash = document.getElementById('adminDashboardScreen');
+    const login = document.getElementById('adminLoginScreen');
+    if(dash) dash.hidden = true;
+    if(login) login.hidden = false;
+  });
+  const adminLoginBtn = document.getElementById('adminLoginBtn');
+  if(adminLoginBtn) adminLoginBtn.addEventListener('click', tryAdminLogin);
+  const adminPassInput = document.getElementById('adminPassInput');
+  if(adminPassInput) adminPassInput.addEventListener('keydown', e=>{ if(e.key === 'Enter') tryAdminLogin(); });
+
+  initAdminTabs();
+  initAdminForms();
+
+  /* hero spotlight */
+  const hero = document.querySelector('.hero');
+  const spot = document.getElementById('heroSpot');
+  if(hero && spot && !window.matchMedia('(hover: none)').matches){
+    hero.addEventListener('mousemove', e=>{
+      const r = hero.getBoundingClientRect();
+      spot.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100)+'%');
+      spot.style.setProperty('--my', ((e.clientY - r.top)/r.height*100)+'%');
+    });
+    hero.addEventListener('mouseleave', ()=>{
+      spot.style.setProperty('--mx','50%');
+      spot.style.setProperty('--my','30%');
+    });
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', ()=>{
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(()=>{ onScroll(); ticking = false; });
+  }, {passive:true});
+  window.addEventListener('resize', updateTimelineProgress);
+  onScroll();
+});
 </script>
 </body>
 </html>
