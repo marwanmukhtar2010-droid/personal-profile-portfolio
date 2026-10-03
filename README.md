@@ -1,1 +1,1 @@
-# page-about-me-and-my-interests
+I created this simple page to give to anyone who wants to know more about me. You can use the code to create your own page, but remember to change the password and add more security to the admin page, and also don't put the password in the code Just like I did (I was too lazy to change it and just looked for it in the code, to be honest)
